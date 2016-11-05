@@ -1,5 +1,5 @@
 # NovaBox
-Circuit and PCB design of simple Bluetooth stereo speakers
+Circuit and PCB design of simple Bluetooth stereo received and amplifier
 
 
 This is based around the CSR8645 module you can get on ebay or aliexpress. The output from the module is amplified using a pair of PAM8304 (one for each channel).
@@ -11,3 +11,5 @@ I have decided not to include a battery charger, even though CSR8645 needs only 
 The circuit includes a 4 level battery state indicator.
 
 The CSR8645 configuration SPI inteface is brought out to a 5 pin connector.
+
+The circuit and PCB are designed using KiCad.
