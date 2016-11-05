@@ -1,0 +1,3 @@
+(fp_lib_table
+  (lib (name NovaBox)(type KiCad)(uri ${KIPRJMOD}/NovaBox.pretty)(options "")(descr "NovaBox footprints"))
+)
