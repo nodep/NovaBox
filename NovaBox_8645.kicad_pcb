@@ -2180,7 +2180,7 @@
   (gr_arc (start 131 161) (end 135 161) (angle 90) (layer Edge.Cuts) (width 0.2))
   (gr_arc (start 49 161) (end 49 165) (angle 90) (layer Edge.Cuts) (width 0.2))
   (gr_arc (start 49 140) (end 45 140) (angle 90) (layer Edge.Cuts) (width 0.2))
-  (gr_text "NovaBox\nby nodep\n2016/11/03" (at 100.457 153.924) (layer F.SilkS)
+  (gr_text "NovaBox\nby čika c\n2016/11/06" (at 100.457 153.924) (layer F.SilkS)
     (effects (font (thickness 0.254)) (justify left))
   )
   (gr_line (start 45 161) (end 45 140) (angle 90) (layer Edge.Cuts) (width 0.2))
