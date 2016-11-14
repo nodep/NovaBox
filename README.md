@@ -21,4 +21,6 @@ The circuit and PCB are designed using KiCad.
 
 ![CSR8635 module](docs/CSR8635 module.jpg)
 
-A slightly simpler version of the circuit is based around CSR8635. It does not have the the battery over-discharge protection or the battery batery discharge state indicator LEDs. It does have, however, reverse battery protection.
+A slightly simpler version of the circuit is based around CSR8635. It does not have the the battery over-discharge protection or the battery batery discharge state indicator LEDs.
+
+It does have reverse battery protection.
