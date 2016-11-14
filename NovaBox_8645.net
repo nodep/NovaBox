@@ -1,7 +1,7 @@
 (export (version D)
   (design
     (source C:/my_git/NovaBox/NovaBox_8645.sch)
-    (date "2016.11.09. 14:09:53")
+    (date "2016.11.14. 11:35:34")
     (tool "Eeschema 4.0.4-stable")
     (sheet (number 1) (name /) (tstamps /)
       (title_block
@@ -388,13 +388,13 @@
       (sheetpath (names /) (tstamps /))
       (tstamp 581A0D6D))
     (comp (ref R3)
-      (value 10K)
+      (value 1K)
       (footprint NovaBox:R_0805)
       (libsource (lib device) (part R))
       (sheetpath (names /) (tstamps /))
       (tstamp 581A0EA5))
     (comp (ref R7)
-      (value 100K)
+      (value 10K)
       (footprint NovaBox:R_0805)
       (libsource (lib device) (part R))
       (sheetpath (names /) (tstamps /))
@@ -672,12 +672,12 @@
       (pins
         (pin (num 1) (name 1) (type passive)))))
   (libraries
-    (library (logical device)
-      (uri "C:\\Program Files\\KiCad\\share\\kicad\\library\\device.lib"))
+    (library (logical NovaBox)
+      (uri C:\my_git\NovaBox\NovaBox.lib))
     (library (logical conn)
       (uri "C:\\Program Files\\KiCad\\share\\kicad\\library\\conn.lib"))
-    (library (logical NovaBox)
-      (uri C:\my_git\NovaBox\NovaBox.lib)))
+    (library (logical device)
+      (uri "C:\\Program Files\\KiCad\\share\\kicad\\library\\device.lib")))
   (nets
     (net (code 1) (name "Net-(C11-Pad2)")
       (node (ref U1) (pin 39))

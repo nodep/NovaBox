@@ -63,7 +63,7 @@
     (pad_drill 3)
     (pad_to_mask_clearance 0)
     (aux_axis_origin 0 0)
-    (visible_elements 7FFFFF7F)
+    (visible_elements 7FFFFFFF)
     (pcbplotparams
       (layerselection 0x010f0_80000001)
       (usegerberextensions true)
@@ -729,7 +729,7 @@
     (fp_text reference R7 (at 0 -1.397 180) (layer B.SilkS)
       (effects (font (size 0.762 0.762) (thickness 0.127)) (justify mirror))
     )
-    (fp_text value 10K (at 0 0 450) (layer Dwgs.User) hide
+    (fp_text value 1K (at 0 0 450) (layer Dwgs.User) hide
       (effects (font (size 0.127 0.127) (thickness 0.0254)))
     )
     (fp_line (start 1.524 -0.762) (end -1.524 -0.762) (layer B.SilkS) (width 0.1524))
@@ -753,7 +753,7 @@
     (fp_text reference R8 (at 0 -1.397 180) (layer B.SilkS)
       (effects (font (size 0.762 0.762) (thickness 0.127)) (justify mirror))
     )
-    (fp_text value 100K (at 0 0 450) (layer Dwgs.User) hide
+    (fp_text value 10K (at 0 0 450) (layer Dwgs.User) hide
       (effects (font (size 0.127 0.127) (thickness 0.0254)))
     )
     (fp_line (start 1.524 -0.762) (end -1.524 -0.762) (layer B.SilkS) (width 0.1524))
