@@ -1,10 +1,10 @@
-(module Switch_2mm (layer F.Cu) (tedit 5823124E)
+(module Switch_2mm (layer F.Cu) (tedit 5832E47C)
   (descr "general off-PCB switch 2mm pitch")
   (fp_text reference Val (at 0 0) (layer F.SilkS) hide
     (effects (font (size 0.127 0.127) (thickness 0.0254)))
   )
   (fp_text value Ref (at 0 -1.8) (layer F.SilkS)
-    (effects (font (size 0.762 0.762) (thickness 0.127)))
+    (effects (font (size 0.75 0.75) (thickness 0.127)))
   )
   (fp_line (start -2 1.2) (end -2 -1.2) (layer F.SilkS) (width 0.1524))
   (fp_line (start -2 -1.2) (end 2 -1.2) (layer F.SilkS) (width 0.1524))
