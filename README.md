@@ -3,7 +3,7 @@ Circuit and PCB design of simple Bluetooth stereo received and amplifier
 
 ### CSR8645 based circuit
 
-![CSR8645 module](docs/CSR8645 module.jpg)
+![CSR8645 module](docs/CSR8645_module.jpg)
 
 This version is based around the CSR8645 module you can get on most chinese online shops. The output from the module is amplified using a pair of PAM8304 (one for each channel).
 
@@ -19,7 +19,7 @@ The circuit and PCB are designed using KiCad.
 
 ### CSR8635 based circuit
 
-![CSR8635 module](docs/CSR8635 module.jpg)
+![CSR8635 module](docs/CSR8635_module.jpg)
 
 A slightly simpler version of the circuit is based around CSR8635. It does not have the the battery over-discharge protection or the battery batery discharge state indicator LEDs.
 
