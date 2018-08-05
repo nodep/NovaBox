@@ -1,4 +1,5 @@
 NovaBox_8635-cache.lib
 *.bak
+*.bck
 *.kicad_pcb-bak
 *.dcm
