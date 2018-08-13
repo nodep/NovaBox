@@ -3,3 +3,6 @@ NovaBox_8635-cache.lib
 *.bck
 *.kicad_pcb-bak
 *.dcm
+*.net
+gerber/*.g*
+gerber/*.drl

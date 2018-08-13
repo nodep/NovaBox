@@ -54,8 +54,8 @@
 
 	<boarddrillplates>
 		<drillplate from="top" to="btm" plated="yes">
-			<filename>.\NovaBox_8635.drl</filename>
-			<filedisp>NovaBox_8635.drl</filedisp>
+			<filename>.\NovaBox_8635-PTH.drl</filename>
+			<filedisp>NovaBox_8635-PTH.drl</filedisp>
 		</drillplate>
 	</boarddrillplates>
 
