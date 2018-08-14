@@ -1,4 +1,5 @@
 EESchema Schematic File Version 4
+LIBS:NovaBox_8635-cache
 EELAYER 26 0
 EELAYER END
 $Descr A4 11693 8268
@@ -2313,4 +2314,32 @@ F 3 "" H 7550 5100 50  0001 L CNN
 	1    7550 5100
 	1    0    0    -1  
 $EndComp
+$Comp
+L power:VCC #PWR?
+U 1 1 5B78AAC5
+P 3400 6100
+F 0 "#PWR?" H 3400 5950 50  0001 C CNN
+F 1 "VCC" H 3417 6273 50  0000 C CNN
+F 2 "" H 3400 6100 50  0001 C CNN
+F 3 "" H 3400 6100 50  0001 C CNN
+	1    3400 6100
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:+5V #PWR?
+U 1 1 5B78AFA7
+P 3650 6100
+F 0 "#PWR?" H 3650 5950 50  0001 C CNN
+F 1 "+5V" H 3650 6240 50  0000 C CNN
+F 2 "" H 3650 6100 50  0000 C CNN
+F 3 "" H 3650 6100 50  0000 C CNN
+	1    3650 6100
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	3400 6100 3400 6200
+Wire Wire Line
+	3400 6200 3650 6200
+Wire Wire Line
+	3650 6200 3650 6100
 $EndSCHEMATC

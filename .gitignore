@@ -6,3 +6,4 @@ NovaBox_8635-cache.lib
 *.net
 gerber/*.g*
 gerber/*.drl
+gerber/order
