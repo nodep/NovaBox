@@ -27,8 +27,8 @@ The two differential outputs from the module are amplified using a pair of PAM83
 
 The circuit includes a 4 level battery charge indicator. It works by using four op-amps as comparators.
 
-## Configuration
+### Flash configuration
 
-The CSR8635 configuration SPI inteface is brought out to a 5 pin connector. 
+The SPI configuration inteface of the CSR8635 module is brought out to a 5 pin header.
 
 The circuit and PCB can be edited using KiCad v5.
