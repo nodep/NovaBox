@@ -21,7 +21,7 @@ The circuit has 4 buttons and an on/off switch.
 
 ### Audio amplifier
 
-The two differential outputs from the module are amplified using a pair of PAM8304.
+The two differential outputs from the module are amplified using a pair of [PAM8304](docs/PAM8304.pdf).
 
 ### Battery charge level
 
