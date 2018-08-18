@@ -18,7 +18,7 @@ The circuit and PCB are designed in KiCad v5. The project contains all the symbo
 
 The PCB has two layers with components soldered on both sides.
 
-### Circuit parts
+### Circuit sections
 
 The circuit has several subsections:
 
@@ -29,10 +29,6 @@ The circuit has several subsections:
 * A four level battery charge indicator with four LEDs which is built around a quad op-amp [MCP6004](docs/MCP6004.pdf). The op-amps work as comparators with inputs from four voltage dividers, comparing them to a 2.5V reference [LM4040](docs/lm4040-n.pdf). The op-amp outputs drive the four LEDs.
 * The audio amplifier section is built around two [PAM8304](docs/PAM8304.pdf). The amplifiers can drive two 8Ω speakers at 1.7W each. They can also drive 4Ω speakers at 3W each, but the sum power requirement of the amplifiers would exceed the 5W that LT1308 can provide.
  
-### Battery charge level
-
-The circuit includes a 4 level battery charge indicator. It works by using four op-amps as comparators.
-
 ## Flash configuration
 
-The SPI configuration inteface of the CSR8635 module is brought out to a 5 pin header. This can be used to configure various parameters of the system such as device name, button mapping, RGB LED states, etc.
+The SPI configuration interface of the CSR8635 module is brought out to a 5 pin header. This can be used to configure various parameters of the system such as device name, button mapping, RGB LED states, etc.
