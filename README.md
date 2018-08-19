@@ -23,7 +23,7 @@ The PCB has two layers with components soldered on both sides.
 The circuit has several subsections:
 
 * A single unprotected Li-ion 18650 battery with reverse protection and reverse indicator LED, and a hard on/off switch brought out to a pin header.
-* The CSR8635 module with four buttons brought out to pin headers, an RGD LED driven from the module's 3 LED pins, and CSR8635's USB pins brought out to a THT Mini USB connector. The buttons can be configured for any of the standard commands: play/pause, next, volume up/down and so on.
+* The CSR8635 module with five buttons brought out to pin headers, an RGD LED driven from the module's 3 LED pins, and CSR8635's USB pins brought out to a THT Mini USB connector. The buttons can be configured for any of the standard commands: play/pause, next, volume up/down and so on.
 * A section providing a pulse on CSR8635's PWER_E pin which wakes it up after the circuit has received power.
 * The power section with an [LT1308](docs/LT1308abfb.pdf) DC/DC converter which boost the battery voltage to 5V at max 1A. The power section is disabled when CSR8635 goes to shutdown on low battery (< 3.2V). LT1308 has a soft-start feature which is implemented in the design, but is not necessary for the operation of the rest of the power section.
 * A four level battery charge indicator with four LEDs which is built around a quad op-amp [MCP6004](docs/MCP6004.pdf). The op-amps work as comparators with inputs from four voltage dividers, comparing them to a 2.5V reference [LM4040](docs/lm4040-n.pdf). The op-amp outputs drive the four LEDs.
