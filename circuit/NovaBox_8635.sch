@@ -6,7 +6,7 @@ $Descr A4 11693 8268
 encoding utf-8
 Sheet 1 1
 Title "NovaBox"
-Date ""
+Date "2018-08-20"
 Rev ""
 Comp ""
 Comment1 ""
@@ -1109,12 +1109,12 @@ NoConn ~ 6500 7600
 $Comp
 L NovaBox:CONN_01X02 SW6
 U 1 1 580D1AA2
-P 5200 5400
-F 0 "SW6" H 5200 5550 50  0000 C CNN
-F 1 "ON/OFF" V 5300 5400 50  0000 C CNN
-F 2 "NovaBox:Switch_2.5mm" H 5200 5400 50  0001 C CNN
-F 3 "" H 5200 5400 50  0000 C CNN
-	1    5200 5400
+P 5200 5550
+F 0 "SW6" H 5200 5700 50  0000 C CNN
+F 1 "ON/OFF" V 5300 5550 50  0000 C CNN
+F 2 "NovaBox:Switch_2.5mm" H 5200 5550 50  0001 C CNN
+F 3 "" H 5200 5550 50  0000 C CNN
+	1    5200 5550
 	-1   0    0    -1  
 $EndComp
 $Comp
@@ -1763,7 +1763,7 @@ Connection ~ 10400 6150
 Wire Wire Line
 	6100 4750 6100 5450
 Wire Wire Line
-	5400 5450 5400 5750
+	5400 5600 5400 5750
 Wire Wire Line
 	7450 4350 9250 4350
 Connection ~ 9250 4350
@@ -1942,7 +1942,7 @@ D+
 Text Label 3450 3600 0    60   ~ 0
 D-
 Wire Wire Line
-	5400 5250 5400 5350
+	5400 5250 5400 5500
 Text GLabel 8800 4950 0    60   Input ~ 0
 VR_SHDN
 Wire Wire Line
@@ -2303,7 +2303,7 @@ Wire Wire Line
 	5750 5750 5900 5750
 Text Notes 6200 5200 0    60   ~ 0
 battery with reverse\nprotection and\nLED indicator
-Text Notes 8250 2950 0    60   ~ 0
+Text Notes 8850 2950 2    60   ~ 0
 power section\nenabler\n
 Text Notes 6250 2950 2    60   ~ 0
 CSR8635 wake up\non power-on\n
@@ -2343,4 +2343,6 @@ Wire Wire Line
 	2250 6450 1850 6450
 Text Notes 850  7200 0    60   ~ 0
 >3.95V
+Text Label 5400 5350 0    50   ~ 0
+-BATT
 $EndSCHEMATC

@@ -1,4 +1,4 @@
-(module MountingHole (layer F.Cu) (tedit 58492E56)
+(module MountingHole (layer F.Cu) (tedit 5B7A9545)
   (descr "Mounting hole")
   (tags "Mounting hole")
   (fp_text reference MH (at 0 0.95) (layer F.SilkS) hide
@@ -15,5 +15,5 @@
   (fp_line (start 3.1 0) (end 1.55 -2.684) (layer F.CrtYd) (width 0.05))
   (fp_circle (center 0 0) (end 3.1 0) (layer F.CrtYd) (width 0.05))
   (fp_circle (center 0 0) (end 1.5 0) (layer F.CrtYd) (width 0.05))
-  (pad 1 thru_hole circle (at 0 0) (size 3 3) (drill 3) (layers *.Cu *.Mask F.SilkS))
+  (pad 1 thru_hole circle (at 0 0) (size 3 3) (drill 3) (layers *.Cu *.Mask))
 )
