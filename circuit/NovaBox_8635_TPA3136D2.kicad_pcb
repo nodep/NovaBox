@@ -2,7 +2,7 @@
 
   (general
     (thickness 1.6)
-    (drawings 4)
+    (drawings 8)
     (tracks 0)
     (zones 0)
     (modules 99)
@@ -259,7 +259,7 @@
   )
 
   (module NovaBox:Batt_Holder_18650 (layer B.Cu) (tedit 5B7A9627) (tstamp 5B944520)
-    (at 100 77)
+    (at 100 81)
     (path /57F3E8ED)
     (fp_text reference BT1 (at 0 -0.5) (layer B.SilkS)
       (effects (font (size 1 1) (thickness 0.15)) (justify mirror))
@@ -298,7 +298,7 @@
   )
 
   (module NovaBox:Batt_Holder_18650 (layer B.Cu) (tedit 5B7A9627) (tstamp 5B945697)
-    (at 100 54 180)
+    (at 100 60 180)
     (path /5BDCDD80)
     (fp_text reference BT2 (at 0 -0.5) (layer B.SilkS)
       (effects (font (size 1 1) (thickness 0.15)) (justify mirror))
@@ -337,7 +337,7 @@
   )
 
   (module NovaBox:MountingHole (layer F.Cu) (tedit 5B7A9545) (tstamp 5B944784)
-    (at 138 77)
+    (at 138 61)
     (descr "Mounting hole")
     (tags "Mounting hole")
     (path /580E792B)
@@ -359,7 +359,7 @@
   )
 
   (module NovaBox:MountingHole (layer F.Cu) (tedit 5B7A9545) (tstamp 5B944791)
-    (at 62 77)
+    (at 62 85)
     (descr "Mounting hole")
     (tags "Mounting hole")
     (path /580E8887)
@@ -381,7 +381,7 @@
   )
 
   (module NovaBox:MountingHole (layer F.Cu) (tedit 5B7A9545) (tstamp 5B94479E)
-    (at 138 53)
+    (at 138 85)
     (descr "Mounting hole")
     (tags "Mounting hole")
     (path /580E8963)
@@ -403,7 +403,7 @@
   )
 
   (module NovaBox:MountingHole (layer F.Cu) (tedit 5B7A9545) (tstamp 5B9447AB)
-    (at 62 53)
+    (at 62 61)
     (descr "Mounting hole")
     (tags "Mounting hole")
     (path /580E8A4C)
@@ -454,7 +454,7 @@
   )
 
   (module NovaBox:CPOL_D10_P4.5 (layer B.Cu) (tedit 5B9191D4) (tstamp 5B954B74)
-    (at 112.512737 112.528821 90)
+    (at 112.512737 124.528821 90)
     (path /5B870F8C)
     (fp_text reference C2 (at 0 6 90) (layer B.SilkS)
       (effects (font (size 0.75 0.75) (thickness 0.15)) (justify mirror))
@@ -473,7 +473,7 @@
   )
 
   (module NovaBox:C_0805 (layer F.Cu) (tedit 58494159) (tstamp 5B955CA7)
-    (at 108.512737 113.528821 270)
+    (at 108.512737 125.528821 270)
     (descr "Capacitor SMD 0805, reflow soldering, AVX (see smccp.pdf)")
     (tags "capacitor 0805")
     (path /5B896532)
@@ -502,7 +502,7 @@
   )
 
   (module NovaBox:C_0805 (layer F.Cu) (tedit 58494159) (tstamp 5B954B8C)
-    (at 106.512737 113.528821 270)
+    (at 106.512737 125.528821 270)
     (descr "Capacitor SMD 0805, reflow soldering, AVX (see smccp.pdf)")
     (tags "capacitor 0805")
     (path /5B8964CE)
@@ -560,7 +560,7 @@
   )
 
   (module NovaBox:C_0805 (layer F.Cu) (tedit 58494159) (tstamp 5B954BA4)
-    (at 108.512737 121.028821)
+    (at 108.512737 133.028821)
     (descr "Capacitor SMD 0805, reflow soldering, AVX (see smccp.pdf)")
     (tags "capacitor 0805")
     (path /5B86FE2D)
@@ -589,7 +589,7 @@
   )
 
   (module NovaBox:C_0805 (layer F.Cu) (tedit 58494159) (tstamp 5B954BB0)
-    (at 110.5 125.5 180)
+    (at 110.5 137.5 180)
     (descr "Capacitor SMD 0805, reflow soldering, AVX (see smccp.pdf)")
     (tags "capacitor 0805")
     (path /5B870D69)
@@ -618,7 +618,7 @@
   )
 
   (module NovaBox:CPOL_D10_P4.5 (layer B.Cu) (tedit 5B9191D4) (tstamp 5B954BBA)
-    (at 86.512737 112.528821 90)
+    (at 86.512737 124.528821 90)
     (path /5B8A81E1)
     (fp_text reference C8 (at 0 -6.35 90) (layer B.SilkS)
       (effects (font (size 0.75 0.75) (thickness 0.15)) (justify mirror))
@@ -637,7 +637,7 @@
   )
 
   (module NovaBox:C_0805 (layer F.Cu) (tedit 58494159) (tstamp 5B957A9C)
-    (at 90.512737 113.528821 270)
+    (at 90.512737 125.528821 270)
     (descr "Capacitor SMD 0805, reflow soldering, AVX (see smccp.pdf)")
     (tags "capacitor 0805")
     (path /5B8A81F0)
@@ -666,7 +666,7 @@
   )
 
   (module NovaBox:C_0805 (layer F.Cu) (tedit 58494159) (tstamp 5B954BD2)
-    (at 92.512737 113.528821 270)
+    (at 92.512737 125.528821 270)
     (descr "Capacitor SMD 0805, reflow soldering, AVX (see smccp.pdf)")
     (tags "capacitor 0805")
     (path /5B8A81E9)
@@ -695,7 +695,7 @@
   )
 
   (module NovaBox:C_0805 (layer F.Cu) (tedit 58494159) (tstamp 5B954BDE)
-    (at 103.012737 99.528821 270)
+    (at 103.012737 111.528821 270)
     (descr "Capacitor SMD 0805, reflow soldering, AVX (see smccp.pdf)")
     (tags "capacitor 0805")
     (path /5B96E608)
@@ -753,7 +753,7 @@
   )
 
   (module NovaBox:C_0805 (layer F.Cu) (tedit 58494159) (tstamp 5B954BF6)
-    (at 103.012737 122.028821 270)
+    (at 101 134 270)
     (descr "Capacitor SMD 0805, reflow soldering, AVX (see smccp.pdf)")
     (tags "capacitor 0805")
     (path /5B875F69)
@@ -782,7 +782,7 @@
   )
 
   (module NovaBox:C_0805 (layer F.Cu) (tedit 58494159) (tstamp 5B95DE6C)
-    (at 108.5 132 180)
+    (at 108.5 144 180)
     (descr "Capacitor SMD 0805, reflow soldering, AVX (see smccp.pdf)")
     (tags "capacitor 0805")
     (path /5B875F79)
@@ -811,7 +811,7 @@
   )
 
   (module NovaBox:C_0805 (layer F.Cu) (tedit 58494159) (tstamp 5B954C0E)
-    (at 101.012737 99.528821 270)
+    (at 101.012737 111.528821 270)
     (descr "Capacitor SMD 0805, reflow soldering, AVX (see smccp.pdf)")
     (tags "capacitor 0805")
     (path /5B96E686)
@@ -869,7 +869,7 @@
   )
 
   (module NovaBox:C_0805 (layer F.Cu) (tedit 58494159) (tstamp 5B954C26)
-    (at 105.012737 117.528821 90)
+    (at 105.012737 129.528821 90)
     (descr "Capacitor SMD 0805, reflow soldering, AVX (see smccp.pdf)")
     (tags "capacitor 0805")
     (path /5B86F545)
@@ -898,7 +898,7 @@
   )
 
   (module NovaBox:C_0805 (layer F.Cu) (tedit 58494159) (tstamp 5B954C32)
-    (at 101.512737 117.528821 180)
+    (at 101.512737 129.528821 180)
     (descr "Capacitor SMD 0805, reflow soldering, AVX (see smccp.pdf)")
     (tags "capacitor 0805")
     (path /5B86F5C6)
@@ -927,7 +927,7 @@
   )
 
   (module NovaBox:C_0805 (layer F.Cu) (tedit 58494159) (tstamp 5B954C3E)
-    (at 97.512737 117.528821)
+    (at 97.512737 129.528821)
     (descr "Capacitor SMD 0805, reflow soldering, AVX (see smccp.pdf)")
     (tags "capacitor 0805")
     (path /5B86F5E2)
@@ -956,7 +956,7 @@
   )
 
   (module NovaBox:C_0805 (layer F.Cu) (tedit 58494159) (tstamp 5B954C4A)
-    (at 94.012737 117.528821 90)
+    (at 94.012737 129.528821 90)
     (descr "Capacitor SMD 0805, reflow soldering, AVX (see smccp.pdf)")
     (tags "capacitor 0805")
     (path /5B86F602)
@@ -1014,7 +1014,7 @@
   )
 
   (module NovaBox:C_0805 (layer F.Cu) (tedit 58494159) (tstamp 5B954C62)
-    (at 96.012737 122.028821 270)
+    (at 98 134 270)
     (descr "Capacitor SMD 0805, reflow soldering, AVX (see smccp.pdf)")
     (tags "capacitor 0805")
     (path /5B87E174)
@@ -1043,7 +1043,7 @@
   )
 
   (module NovaBox:C_0805 (layer F.Cu) (tedit 58494159) (tstamp 5B95DCDE)
-    (at 93.5 127.5 270)
+    (at 93.5 139.5 270)
     (descr "Capacitor SMD 0805, reflow soldering, AVX (see smccp.pdf)")
     (tags "capacitor 0805")
     (path /5B87E184)
@@ -1072,7 +1072,7 @@
   )
 
   (module NovaBox:C_0805 (layer F.Cu) (tedit 58494159) (tstamp 5B954C7A)
-    (at 95.012737 99.528821 270)
+    (at 95.012737 111.528821 270)
     (descr "Capacitor SMD 0805, reflow soldering, AVX (see smccp.pdf)")
     (tags "capacitor 0805")
     (path /5B972720)
@@ -1101,7 +1101,7 @@
   )
 
   (module NovaBox:C_0805 (layer F.Cu) (tedit 58494159) (tstamp 5B954C86)
-    (at 97.012737 99.528821 270)
+    (at 97.012737 111.528821 270)
     (descr "Capacitor SMD 0805, reflow soldering, AVX (see smccp.pdf)")
     (tags "capacitor 0805")
     (path /5B97269A)
@@ -1159,7 +1159,7 @@
   )
 
   (module NovaBox:C_0805 (layer F.Cu) (tedit 58494159) (tstamp 5B95641D)
-    (at 90.512737 121.028821 180)
+    (at 90.512737 133.028821 180)
     (descr "Capacitor SMD 0805, reflow soldering, AVX (see smccp.pdf)")
     (tags "capacitor 0805")
     (path /5B87B00D)
@@ -1188,7 +1188,7 @@
   )
 
   (module NovaBox:C_0805 (layer F.Cu) (tedit 58494159) (tstamp 5B954CAA)
-    (at 86.5 124)
+    (at 86.5 136)
     (descr "Capacitor SMD 0805, reflow soldering, AVX (see smccp.pdf)")
     (tags "capacitor 0805")
     (path /5B87B01D)
@@ -1366,7 +1366,7 @@
   )
 
   (module NovaBox:LED_0805 (layer F.Cu) (tedit 584028D4) (tstamp 5B954CFF)
-    (at 111.312737 98.378821 90)
+    (at 111.312737 110.378821 90)
     (descr "LED 0805 smd package")
     (tags "LED 0805 SMD")
     (path /5B8EC03E)
@@ -1527,7 +1527,7 @@
   )
 
   (module NovaBox:LED_0805 (layer F.Cu) (tedit 584028D4) (tstamp 5B954D4B)
-    (at 126.45 64.5)
+    (at 113.95 57.5)
     (descr "LED 0805 smd package")
     (tags "LED 0805 SMD")
     (path /5B8EE20F)
@@ -1559,7 +1559,7 @@
   )
 
   (module NovaBox:R_0805 (layer F.Cu) (tedit 5849411F) (tstamp 5B954D57)
-    (at 108.512737 118.528821 180)
+    (at 108.512737 130.528821 180)
     (descr "Resistor SMD 0805, reflow soldering, Vishay (see dcrcw.pdf)")
     (tags "resistor 0805")
     (path /5B86F8BB)
@@ -1588,7 +1588,7 @@
   )
 
   (module NovaBox:R_0805 (layer F.Cu) (tedit 5849411F) (tstamp 5B954D63)
-    (at 101.012737 122.028821 90)
+    (at 103 134 90)
     (descr "Resistor SMD 0805, reflow soldering, Vishay (see dcrcw.pdf)")
     (tags "resistor 0805")
     (path /5B875F62)
@@ -1617,7 +1617,7 @@
   )
 
   (module NovaBox:R_0805 (layer F.Cu) (tedit 5849411F) (tstamp 5B959339)
-    (at 98.012737 122.028821 90)
+    (at 96 134 90)
     (descr "Resistor SMD 0805, reflow soldering, Vishay (see dcrcw.pdf)")
     (tags "resistor 0805")
     (path /5B87E16D)
@@ -1646,7 +1646,7 @@
   )
 
   (module NovaBox:R_0805 (layer F.Cu) (tedit 5849411F) (tstamp 5B954D7B)
-    (at 90.512737 118.528821)
+    (at 90.512737 130.528821)
     (descr "Resistor SMD 0805, reflow soldering, Vishay (see dcrcw.pdf)")
     (tags "resistor 0805")
     (path /5B87B006)
@@ -1740,7 +1740,7 @@
   )
 
   (module NovaBox:SOT-23 (layer F.Cu) (tedit 5832F418) (tstamp 5B954DAF)
-    (at 108.312737 102.528821 180)
+    (at 108.312737 114.528821 180)
     (descr "SOT-23, Standard")
     (tags SOT-23)
     (path /5B8D6C55)
@@ -1842,7 +1842,7 @@
   )
 
   (module NovaBox:SOT-23 (layer F.Cu) (tedit 5832F418) (tstamp 5B954DDF)
-    (at 122.5 65.4 180)
+    (at 110 58.4 180)
     (descr "SOT-23, Standard")
     (tags SOT-23)
     (path /58207C6D)
@@ -1905,7 +1905,7 @@
   )
 
   (module NovaBox:R_0805 (layer F.Cu) (tedit 5849411F) (tstamp 5B954DF7)
-    (at 114.5 125.5)
+    (at 114.5 137.5)
     (descr "Resistor SMD 0805, reflow soldering, Vishay (see dcrcw.pdf)")
     (tags "resistor 0805")
     (path /5B871268)
@@ -1963,7 +1963,7 @@
   )
 
   (module NovaBox:R_0805 (layer F.Cu) (tedit 5849411F) (tstamp 5B95DE4B)
-    (at 108.5 130 180)
+    (at 108.5 142 180)
     (descr "Resistor SMD 0805, reflow soldering, Vishay (see dcrcw.pdf)")
     (tags "resistor 0805")
     (path /5B875F83)
@@ -1992,7 +1992,7 @@
   )
 
   (module NovaBox:R_0805 (layer F.Cu) (tedit 5849411F) (tstamp 5B9579D8)
-    (at 81.5 104 270)
+    (at 81.5 116 270)
     (descr "Resistor SMD 0805, reflow soldering, Vishay (see dcrcw.pdf)")
     (tags "resistor 0805")
     (path /5B90C2E4)
@@ -2021,7 +2021,7 @@
   )
 
   (module NovaBox:RPOT_RKT6V (layer B.Cu) (tedit 5B94F615) (tstamp 5B954E29)
-    (at 86 101.5 90)
+    (at 86 113.5 90)
     (path /5B90C9CE)
     (fp_text reference R6 (at 0 -2 90) (layer B.SilkS)
       (effects (font (size 0.75 0.75) (thickness 0.15)) (justify mirror))
@@ -2074,7 +2074,7 @@
   )
 
   (module NovaBox:R_0805 (layer F.Cu) (tedit 5849411F) (tstamp 5B954E41)
-    (at 98 128.5)
+    (at 98 140.5)
     (descr "Resistor SMD 0805, reflow soldering, Vishay (see dcrcw.pdf)")
     (tags "resistor 0805")
     (path /5B87E18E)
@@ -2103,7 +2103,7 @@
   )
 
   (module NovaBox:R_0805 (layer F.Cu) (tedit 5849411F) (tstamp 5B954E4D)
-    (at 115.012737 103.528821 90)
+    (at 115.012737 115.528821 90)
     (descr "Resistor SMD 0805, reflow soldering, Vishay (see dcrcw.pdf)")
     (tags "resistor 0805")
     (path /5B9BD02A)
@@ -2132,7 +2132,7 @@
   )
 
   (module NovaBox:R_0805 (layer F.Cu) (tedit 5849411F) (tstamp 5B954E59)
-    (at 109.062737 98.378821 270)
+    (at 109.062737 110.378821 270)
     (descr "Resistor SMD 0805, reflow soldering, Vishay (see dcrcw.pdf)")
     (tags "resistor 0805")
     (path /5B8C89A0)
@@ -2161,7 +2161,7 @@
   )
 
   (module NovaBox:R_0805 (layer F.Cu) (tedit 5849411F) (tstamp 5B95DF82)
-    (at 86.5 126)
+    (at 86.5 138)
     (descr "Resistor SMD 0805, reflow soldering, Vishay (see dcrcw.pdf)")
     (tags "resistor 0805")
     (path /5B87B027)
@@ -2248,7 +2248,7 @@
   )
 
   (module NovaBox:R_0805 (layer F.Cu) (tedit 5849411F) (tstamp 5B954E89)
-    (at 111.312737 102.628821 270)
+    (at 111.312737 114.628821 270)
     (descr "Resistor SMD 0805, reflow soldering, Vishay (see dcrcw.pdf)")
     (tags "resistor 0805")
     (path /5B8E4DB1)
@@ -2683,7 +2683,7 @@
   )
 
   (module NovaBox:R_0805 (layer F.Cu) (tedit 5849411F) (tstamp 5B954F3D)
-    (at 126.5 66.5)
+    (at 114 59.5)
     (descr "Resistor SMD 0805, reflow soldering, Vishay (see dcrcw.pdf)")
     (tags "resistor 0805")
     (path /5B8EE109)
@@ -2838,7 +2838,7 @@
   )
 
   (module NovaBox:Switch_2.5mm (layer F.Cu) (tedit 58A4B3D9) (tstamp 5B954FA0)
-    (at 119.012737 103.528821 270)
+    (at 119.012737 115.528821 270)
     (descr "general off-PCB switch 2.5mm pitch")
     (path /5B927FEF)
     (fp_text reference S1 (at 0 0 270) (layer F.SilkS) hide
@@ -2864,7 +2864,7 @@
   )
 
   (module NovaBox:SPKR (layer F.Cu) (tedit 5840663F) (tstamp 5B95DD19)
-    (at 114 131.77 90)
+    (at 114 143.77 90)
     (path /5B875C6A)
     (fp_text reference SPK1 (at 0 0 90) (layer F.SilkS) hide
       (effects (font (size 0.127 0.127) (thickness 0.01524)))
@@ -2895,7 +2895,7 @@
   )
 
   (module NovaBox:SPKR (layer F.Cu) (tedit 5840663F) (tstamp 5B954FBA)
-    (at 93.5 132.5 180)
+    (at 93.5 144.5 180)
     (path /5B882DAB)
     (fp_text reference SPK2 (at 0 0 180) (layer F.SilkS) hide
       (effects (font (size 0.127 0.127) (thickness 0.01524)))
@@ -2926,7 +2926,7 @@
   )
 
   (module NovaBox:Switch_2.5mm (layer F.Cu) (tedit 58A4B3D9) (tstamp 5B954FC5)
-    (at 140 64.77 270)
+    (at 186.5 66.77 270)
     (descr "general off-PCB switch 2.5mm pitch")
     (path /58D6D804)
     (fp_text reference SW1 (at 0 0 270) (layer F.SilkS) hide
@@ -2952,7 +2952,7 @@
   )
 
   (module NovaBox:Switch_2.5mm (layer F.Cu) (tedit 58A4B3D9) (tstamp 5B954FD0)
-    (at 60 70.5 90)
+    (at 54 75.5 90)
     (descr "general off-PCB switch 2.5mm pitch")
     (path /58D6F42A)
     (fp_text reference SW2 (at 0 0 90) (layer F.SilkS) hide
@@ -2978,7 +2978,7 @@
   )
 
   (module NovaBox:Switch_2.5mm (layer F.Cu) (tedit 58A4B3D9) (tstamp 5B954FDB)
-    (at 140 70.27 270)
+    (at 186.5 72.27 270)
     (descr "general off-PCB switch 2.5mm pitch")
     (path /58D6FE51)
     (fp_text reference SW3 (at 0 0 270) (layer F.SilkS) hide
@@ -3004,7 +3004,7 @@
   )
 
   (module NovaBox:Switch_2.5mm (layer F.Cu) (tedit 58A4B3D9) (tstamp 5B954FE6)
-    (at 60 60 90)
+    (at 54 65 90)
     (descr "general off-PCB switch 2.5mm pitch")
     (path /58D71307)
     (fp_text reference SW4 (at 0 0 90) (layer F.SilkS) hide
@@ -3030,7 +3030,7 @@
   )
 
   (module NovaBox:Switch_2.5mm (layer F.Cu) (tedit 58A4B3D9) (tstamp 5B954FF1)
-    (at 60 65.23 90)
+    (at 54 70.23 90)
     (descr "general off-PCB switch 2.5mm pitch")
     (path /58D735E5)
     (fp_text reference SW5 (at 0 0 90) (layer F.SilkS) hide
@@ -3056,7 +3056,7 @@
   )
 
   (module NovaBox:Switch_2.5mm (layer F.Cu) (tedit 58A4B3D9) (tstamp 5B95D827)
-    (at 140 59.5 270)
+    (at 186.5 61.5 270)
     (descr "general off-PCB switch 2.5mm pitch")
     (path /580D1AA2)
     (fp_text reference SW6 (at 0 0 270) (layer F.SilkS) hide
@@ -3273,7 +3273,7 @@
   )
 
   (module NovaBox:HTSSOP-28_4.4x9.7mm_Pitch0.65mm_ThermalPad (layer F.Cu) (tedit 5B954474) (tstamp 5B9550D1)
-    (at 99.512737 111.028821 270)
+    (at 99.512737 123.028821 270)
     (descr "HTSSOP28: plastic thin shrink small outline package; 28 leads; body width 4.4 mm; thermal pad")
     (tags "TSSOP HTSSOP 0.65 thermal pad")
     (path /5B86F140)
@@ -3490,9 +3490,13 @@
     )
   )
 
-  (gr_line (start 50 142) (end 150 142) (layer Edge.Cuts) (width 0.2))
-  (gr_line (start 150 42) (end 150 142) (layer Edge.Cuts) (width 0.2))
-  (gr_line (start 50 42) (end 50 142) (layer Edge.Cuts) (width 0.2))
-  (gr_line (start 150 42) (end 50 42) (layer Edge.Cuts) (width 0.2))
+  (gr_line (start 120 150) (end 120 90) (layer Edge.Cuts) (width 0.2))
+  (gr_line (start 150 90) (end 120 90) (layer Edge.Cuts) (width 0.2))
+  (gr_line (start 80 90) (end 80 150) (layer Edge.Cuts) (width 0.2))
+  (gr_line (start 50 90) (end 80 90) (layer Edge.Cuts) (width 0.2))
+  (gr_line (start 50 50) (end 150 50) (layer Edge.Cuts) (width 0.2))
+  (gr_line (start 150 50) (end 150 90) (layer Edge.Cuts) (width 0.2))
+  (gr_line (start 50 50) (end 50 90) (layer Edge.Cuts) (width 0.2))
+  (gr_line (start 80 150) (end 120 150) (layer Edge.Cuts) (width 0.2))
 
 )

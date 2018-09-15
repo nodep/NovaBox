@@ -7,6 +7,28 @@ resistors = (10,11,12,13,15,16,18,20,22,24,27,30,
 			240,270,300,330,360,390,430,470,510,
 			560,620,680,750,820,910)
 			
+vtol = 0.05		# tolerance to abs(vout - vref)
+vref = 2.5		# reference voltage
+
+# input voltages for single LiIon 4.2V cell
+#vin1 = 3.949
+#vin2 = 3.777
+#vin3 = 3.601
+#vin4 = 3.477
+
+# input voltages for two LiIon cells totaling 8.4V
+vin1 = 7.898
+vin2 = 7.554
+vin3 = 7.202
+vin4 = 6.954
+
+maxResistors = 6
+maxTotalError = vin1 * .01
+
+##################################################
+##################################################
+##################################################
+
 def getSet(vin, vtol, vref):
 	dataSet = []
 	for r1 in resistors:
@@ -15,25 +37,25 @@ def getSet(vin, vtol, vref):
 			verr = abs(vout - vref)
 			if vtol > verr:
 				dataSet.append((r1, r2, verr))
-				
+
+	if len(dataSet) == 0:
+		raise RuntimeError("vtol is too limiting; data set is empty for voltage: {}".format(vin))
+		
 	return (vin, dataSet)
 
-vtol = 0.01		# tolerance to abs(vout - vref)
-vref = 2.5		# reference voltage
-
-# 4	0.024	3.949	470	270	3.777	470	240	3.601	620	270	3.477	620	240		
-
 dsets = []
-dsets.append(getSet(3.949, vtol, vref))
-dsets.append(getSet(3.777, vtol, vref))
-dsets.append(getSet(3.601, vtol, vref))
-dsets.append(getSet(3.477, vtol, vref))
+dsets.append(getSet(vin1, vtol, vref))
+dsets.append(getSet(vin2, vtol, vref))
+dsets.append(getSet(vin3, vtol, vref))
+dsets.append(getSet(vin4, vtol, vref))
 
+print ('# of resistors	total error V max={}	total current (mA) at vin1	Vout	R1	R2	Vout	R1	R2	Vout	R1	R2	Vout	R1	R2'.format(round(maxTotalError, 3)))
 combinationCounters = [0, 0, 0, 0]
 done = False
 while not done:
 	# sum the total verr for this combination
 	tverr = 0
+	tcurr = 0
 	resistorValues = {}
 	desc = ''
 	for cnt in range(len(dsets)):
@@ -43,12 +65,13 @@ while not done:
 		resistorValues[r1] = 1
 		resistorValues[r2] = 1
 		tverr += dataEntry[2]
-		desc += '{}\t{}\t{}\t'.format(dsets[cnt][0], r1, r2)
+		tcurr += vin1 / (r1 + r2)
+		desc += '\t{}\t{}\t{}'.format(dsets[cnt][0], r1, r2)
 	
-	print ('{}\t{}\t{}\t'.format(len(resistorValues), round(tverr, 3), desc))
-		
-	#print (cnts)
-	# increment
+	if len(resistorValues) <= maxResistors  and  tverr <= maxTotalError:
+		print ('{}\t{}\t{}{}'.format(len(resistorValues), round(tverr, 3), round(tcurr, 3), desc))
+
+	# increment combination counters
 	done = True
 	for setcnt in range(len(combinationCounters)):
 		combinationCounters[setcnt] += 1
