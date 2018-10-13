@@ -4,6 +4,8 @@ This is a circuit and PCB design for a Bluetooth stereo amplifier
 
 ### Why build yet another Bluetooth speaker?
 
+![NovaBox photo](docs/NovaBox_photo.jpg)
+
 The main motivation for this project was the fact that I needed a Bluetooth speaker with batteries that are easy to remove and replace. Most of the commercial Bluetooth speakers have a charging port, and when you run out of battery power the device has to be connected to a charger for several hours. With removable batteries it takes ten seconds to go from empty to full if you have a spare battery. Even though CSR8635 needs only a few components to be able to charge Li-ion batteries, an integrated charger would make the PCB larger, there would be problems with heat dissipation during charging, and charging a medium capacity 18650 battery would take too long.
 
 ## The circuit
