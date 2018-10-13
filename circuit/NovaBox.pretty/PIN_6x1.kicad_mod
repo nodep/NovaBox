@@ -1,4 +1,4 @@
-(module PIN_6x1 (layer F.Cu) (tedit 5BBCEBCB)
+(module PIN_6x1 (layer F.Cu) (tedit 5BC26164)
   (fp_text reference REF** (at 9.525 0) (layer F.SilkS)
     (effects (font (size 0.75 0.75) (thickness 0.15)))
   )
@@ -16,4 +16,9 @@
   (pad 4 thru_hole oval (at -1.27 0) (size 1.5 2) (drill 0.8) (layers *.Cu *.Mask))
   (pad 5 thru_hole oval (at -3.81 0) (size 1.5 2) (drill 0.8) (layers *.Cu *.Mask))
   (pad 6 thru_hole oval (at -6.35 0) (size 1.5 2) (drill 0.8) (layers *.Cu *.Mask))
+  (model ${KISYS3DMOD}/Connector_PinHeader_2.54mm.3dshapes/PinHeader_1x06_P2.54mm_Vertical.wrl
+    (offset (xyz 6.35 0 0))
+    (scale (xyz 1 1 1))
+    (rotate (xyz 0 0 90))
+  )
 )
