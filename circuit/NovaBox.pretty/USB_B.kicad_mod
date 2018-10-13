@@ -1,4 +1,4 @@
-(module USB_B (layer F.Cu) (tedit 5BBB9628)
+(module USB_B (layer F.Cu) (tedit 5BC24249)
   (tags USB)
   (fp_text reference Ref (at 4.826 -5.715) (layer F.SilkS)
     (effects (font (size 0.8128 0.8128) (thickness 0.1524)))
@@ -18,9 +18,9 @@
   (pad 4 thru_hole circle (at 1.27 -2.7) (size 1.524 1.524) (drill 0.8128) (layers *.Cu *.Mask))
   (pad 5 thru_hole circle (at 6 0) (size 3.8 3.8) (drill 2.3) (layers *.Cu *.Mask))
   (pad 5 thru_hole circle (at -6 0) (size 3.8 3.8) (drill 2.3) (layers *.Cu *.Mask))
-  (model Connectors/USB_type_B.wrl
-    (offset (xyz 0 0 0.02539999961853028))
-    (scale (xyz 0.3937 0.3937 0.3937))
+  (model ${KISYS3DMOD}/Connectors.3dshapes/USB_B.wrl
+    (at (xyz 0 0 0))
+    (scale (xyz 0.4 0.4 0.4))
     (rotate (xyz 0 0 0))
   )
 )

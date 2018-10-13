@@ -1,4 +1,4 @@
-(module HTSSOP-28_4.4x9.7mm_Pitch0.65mm_ThermalPad (layer F.Cu) (tedit 57F0F546)
+(module HTSSOP-28_4.4x9.7mm_Pitch0.65mm_ThermalPad (layer F.Cu) (tedit 5BC2430B)
   (descr "HTSSOP28: plastic thin shrink small outline package; 28 leads; body width 4.4 mm; thermal pad")
   (tags "TSSOP HTSSOP 0.65 thermal pad")
   (attr smd)
@@ -88,9 +88,9 @@
   (pad 26 smd rect (at 2.85 -2.925) (size 1.1 0.4) (layers F.Cu F.Paste F.Mask))
   (pad 27 smd rect (at 2.85 -3.575) (size 1.1 0.4) (layers F.Cu F.Paste F.Mask))
   (pad 28 smd rect (at 2.85 -4.225) (size 1.1 0.4) (layers F.Cu F.Paste F.Mask))
-  (model Housings_SSOP.3dshapes/HTSSOP-28_4.4x9.7mm_Pitch0.65mm_ThermalPad.wrl
+  (model ${KISYS3DMOD}/Housings_SSOP.3dshapes/SSOP-28_5.3x10.2mm_Pitch0.65mm.wrl
     (at (xyz 0 0 0))
-    (scale (xyz 1 1 1))
+    (scale (xyz 0.8 1 1))
     (rotate (xyz 0 0 0))
   )
 )
