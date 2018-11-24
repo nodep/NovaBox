@@ -1,5 +1,4 @@
 EESchema Schematic File Version 4
-LIBS:NovaBox_8635_TPA3136D2-cache
 EELAYER 26 0
 EELAYER END
 $Descr A3 16535 11693
