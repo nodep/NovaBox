@@ -1,0 +1,24 @@
+Version 4
+SymbolType CELL
+LINE Normal 16 -16 -16 -16
+LINE Normal 27 -26 16 -16
+LINE Normal -16 -16 -27 -6
+LINE Normal -21 16 0 -16
+LINE Normal 21 16 -21 16
+LINE Normal 0 -16 21 16
+LINE Normal 0 -32 0 -16
+LINE Normal 0 16 0 32
+LINE Normal 32 0 11 0
+WINDOW 0 29 -48 Left 2
+WINDOW 3 77 33 Center 2
+SYMATTR Prefix X
+SYMATTR Value TL431ED
+PIN 0 -32 NONE 8
+PINATTR PinName CATHODE
+PINATTR SpiceOrder 1
+PIN 0 32 NONE 8
+PINATTR PinName ANODE
+PINATTR SpiceOrder 2
+PIN 32 0 NONE 8
+PINATTR PinName REF
+PINATTR SpiceOrder 3
