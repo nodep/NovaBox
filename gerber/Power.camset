@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding='UTF-8'?>
+<CAMsetup>
+	<thisfile>.\Power.camset</thisfile>
+	<morelayertypes>
+	</morelayertypes>
+	<usecolors>
+		<mixer>0.000</mixer>
+		<object type="Plated H. In">00BFBFBF</object>
+		<object type="Plated H. Out">0026120F</object>
+		<object type="Edge In">008C8C09</object>
+		<object type="Edge Out">00809854</object>
+		<object type="Volume">BC7D8C59</object>
+		<object type="Background">00898989</object>
+		<layer type="PasteMask">008080C0</layer>
+		<layer type="Silkscreen">00E3E3E3</layer>
+		<layer type="SolderMask">900B2B06</layer>
+		<layer type="Copper">00765223</layer>
+		<layer type="Core">00000000</layer>
+		<layer type="Prepreg">00000000</layer>
+		<layer type="BoardOutline">00000000</layer>
+	</usecolors>
+	<boardlayers>
+		<layer type="Silkscreen" H="35" Er="0.000" color="00CBFFD4">
+			<filename>.\Power-F.SilkS.gto</filename>
+			<filedisp>Power-F.SilkS.gto</filedisp>
+		</layer>
+		<layer type="SolderMask" H="35" Er="0.000" color="00001700">
+			<filename>.\Power-F.Mask.gts</filename>
+			<filedisp>Power-F.Mask.gts</filedisp>
+		</layer>
+		<layer type="Copper" H="35" Negative="DefaultPositive" color="00800000">
+			<filename>.\Power-F.Cu.gtl</filename>
+			<filedisp>Power-F.Cu.gtl</filedisp>
+		</layer>
+		<layer type="Prepreg" H="1600" Er="4.800">
+		</layer>
+		<layer type="Copper" H="35" Negative="DefaultPositive" color="000000D0">
+			<filename>.\Power-B.Cu.gbl</filename>
+			<filedisp>Power-B.Cu.gbl</filedisp>
+		</layer>
+		<layer type="SolderMask" H="35" Er="0.000" color="00000C1E">
+			<filename>.\Power-B.Mask.gbs</filename>
+			<filedisp>Power-B.Mask.gbs</filedisp>
+		</layer>
+		<layer type="Silkscreen" H="35" Er="0.000" color="00CAD2F6">
+			<filename>.\Power-B.SilkS.gbo</filename>
+			<filedisp>Power-B.SilkS.gbo</filedisp>
+		</layer>
+		<layer type="BoardOutline" H="1810">
+			<filename>.\Power-Edge.Cuts.gm1</filename>
+			<filedisp>Power-Edge.Cuts.gm1</filedisp>
+		</layer>
+	</boardlayers>
+
+	<boarddrillplates>
+		<drillplate from="top" to="btm" plated="yes">
+			<filename>.\Power.drl</filename>
+			<filedisp>Power.drl</filedisp>
+		</drillplate>
+	</boarddrillplates>
+
+	<GerberSetup Incremental='no' OmitTrailingZeros='no' Milimeters='no' Len1='2' Len2='3'/>
+	<NCDSetup Guess='yes' Incremental='no' OmitTrailingZeros='no' Units='DefaultInch' Len1='2' Len2='3' Autooffset='yes'/>
+	<IPC356Setup AutoUnits='1' AutoMagnitude='1' LongPinID='yes' CpyFromDrill='yes' Autooffset='yes'/>
+	<BoardOutlineDrawing srctype='1' trackwidthMin='0.004' trackwidthSlopStart='0.01' trackwidthMetaTrsh='0.012'/>
+	<IdentifyOutline mode='0' removeoutside='yes' horizMargin='0' vertMargin='0' brushBlob='1' />
+</CAMsetup>
