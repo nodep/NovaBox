@@ -2857,7 +2857,7 @@ F 3 "" H 6100 7200 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 Text Notes 8300 7650 0    50   ~ 0
-intentional reverse\nfor easier routing
+intentional reverse\nfor cleaner routing
 Wire Wire Line
 	8050 1950 8050 2050
 Wire Wire Line
@@ -2956,4 +2956,45 @@ Wire Wire Line
 	10050 3950 10150 3950
 Wire Wire Line
 	10150 4050 10050 4050
+$Comp
+L NovaBox:C C23
+U 1 1 5C115EB8
+P 7850 3500
+F 0 "C23" H 7950 3550 50  0000 L CNN
+F 1 "1uF" H 7950 3450 50  0000 L CNN
+F 2 "NovaBox:C_1206" H 7888 3350 50  0001 C CNN
+F 3 "" H 7850 3500 50  0001 C CNN
+	1    7850 3500
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:+4V #PWR066
+U 1 1 5C1168DE
+P 7850 3350
+F 0 "#PWR066" H 7850 3200 50  0001 C CNN
+F 1 "+4V" H 7865 3523 50  0000 C CNN
+F 2 "" H 7850 3350 50  0001 C CNN
+F 3 "" H 7850 3350 50  0001 C CNN
+	1    7850 3350
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR067
+U 1 1 5C1169B1
+P 7850 3650
+F 0 "#PWR067" H 7850 3400 50  0001 C CNN
+F 1 "GND" H 7855 3477 50  0000 C CNN
+F 2 "" H 7850 3650 50  0001 C CNN
+F 3 "" H 7850 3650 50  0001 C CNN
+	1    7850 3650
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	7850 3350 7850 3400
+Wire Wire Line
+	7850 3600 7850 3650
+Text Label 8650 8150 0    50   ~ 0
+PLIMIT
+Text Label 8850 6850 0    50   ~ 0
+GVDD
 $EndSCHEMATC
