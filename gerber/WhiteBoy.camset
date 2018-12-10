@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding='UTF-8'?>
 <CAMsetup>
-	<thisfile>.\Power.camset</thisfile>
+	<thisfile>.\WhiteBoy.camset</thisfile>
 	<morelayertypes>
 	</morelayertypes>
 	<usecolors>
@@ -21,41 +21,41 @@
 	</usecolors>
 	<boardlayers>
 		<layer type="Silkscreen" H="35" Er="0.000" color="00CBFFD4">
-			<filename>.\Power-F.SilkS.gto</filename>
-			<filedisp>Power-F.SilkS.gto</filedisp>
+			<filename>.\WhiteBoy-F.SilkS.gto</filename>
+			<filedisp>WhiteBoy-F.SilkS.gto</filedisp>
 		</layer>
 		<layer type="SolderMask" H="35" Er="0.000" color="00001700">
-			<filename>.\Power-F.Mask.gts</filename>
-			<filedisp>Power-F.Mask.gts</filedisp>
+			<filename>.\WhiteBoy-F.Mask.gts</filename>
+			<filedisp>WhiteBoy-F.Mask.gts</filedisp>
 		</layer>
 		<layer type="Copper" H="35" Negative="DefaultPositive" color="00800000">
-			<filename>.\Power-F.Cu.gtl</filename>
-			<filedisp>Power-F.Cu.gtl</filedisp>
+			<filename>.\WhiteBoy-F.Cu.gtl</filename>
+			<filedisp>WhiteBoy-F.Cu.gtl</filedisp>
 		</layer>
 		<layer type="Prepreg" H="1600" Er="4.800">
 		</layer>
 		<layer type="Copper" H="35" Negative="DefaultPositive" color="000000D0">
-			<filename>.\Power-B.Cu.gbl</filename>
-			<filedisp>Power-B.Cu.gbl</filedisp>
+			<filename>.\WhiteBoy-B.Cu.gbl</filename>
+			<filedisp>WhiteBoy-B.Cu.gbl</filedisp>
 		</layer>
 		<layer type="SolderMask" H="35" Er="0.000" color="00000C1E">
-			<filename>.\Power-B.Mask.gbs</filename>
-			<filedisp>Power-B.Mask.gbs</filedisp>
+			<filename>.\WhiteBoy-B.Mask.gbs</filename>
+			<filedisp>WhiteBoy-B.Mask.gbs</filedisp>
 		</layer>
 		<layer type="Silkscreen" H="35" Er="0.000" color="00CAD2F6">
-			<filename>.\Power-B.SilkS.gbo</filename>
-			<filedisp>Power-B.SilkS.gbo</filedisp>
+			<filename>.\WhiteBoy-B.SilkS.gbo</filename>
+			<filedisp>WhiteBoy-B.SilkS.gbo</filedisp>
 		</layer>
 		<layer type="BoardOutline" H="1810">
-			<filename>.\Power-Edge.Cuts.gm1</filename>
-			<filedisp>Power-Edge.Cuts.gm1</filedisp>
+			<filename>.\WhiteBoy-Edge.Cuts.gm1</filename>
+			<filedisp>WhiteBoy-Edge.Cuts.gm1</filedisp>
 		</layer>
 	</boardlayers>
 
 	<boarddrillplates>
 		<drillplate from="top" to="btm" plated="yes">
-			<filename>.\Power.drl</filename>
-			<filedisp>Power.drl</filedisp>
+			<filename>.\WhiteBoy.drl</filename>
+			<filedisp>WhiteBoy.drl</filedisp>
 		</drillplate>
 	</boarddrillplates>
 
