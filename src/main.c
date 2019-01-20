@@ -8,17 +8,15 @@
 
 #include "utils.h"
 #include "hw_setup.h"
+#include "avrdbg.h"
 #include "led_display.h"
 #include "ds18b20.h"
-#include "avrdbg.h"
 
 #define VOLTAGE_SAMPLES	16
 
 float get_voltage(void)
 {
-	ADMUX = _BV(REFS0)		// reference is AVCC
-			//| _BV(ADLAR)	// higher precision
-			| _BV(MUX0);	// channel ADC1
+	ADMUX = _BV(REFS0);		// reference is AVCC; channel ADC0
 
 	uint16_t adc_sum = 0;
 	uint8_t c;
@@ -42,56 +40,30 @@ float get_voltage(void)
 
 	ADCSRA = 0;		// disable ADC
 
-	// 5.09 is the output voltage of our voltage
+	// 4.01 is the output voltage of our voltage
 	// regulator and also our reference voltage
-	return adc_sum * 5.05 / 1023 / VOLTAGE_SAMPLES;
+	return adc_sum * 4.01 / 1023 / VOLTAGE_SAMPLES;
 }
 
 void init_hw(void)
 {
-	led_init();							// led display
+	dbgInit();
+	
+	led_init();				// led display
+	
 	ds_init(OW_THERM_RES_BITS_12);		// DS18B20 thermometer
 
-	// the sensor readout button
-	ClrBit(DDR(SENS_BTN_PORT), SENS_BTN_BIT);	// pin to input
-	SetBit(PORT(SENS_BTN_PORT), SENS_BTN_BIT);	// enable pull-up
-
-	dbgInit();
-}
-
-// toggle the bluetooth MFB switch
-void btsw_toggle(void)
-{
-	uint8_t c;
-	char msg[4];
-
-	SetBit(DDR(BT_SW_PORT), BT_SW_BIT);		// pin to output
-	SetBit(PORT(BT_SW_PORT), BT_SW_BIT);	// pin hi
-	
-	for (c = 5; c < 6; c--)
-	{
-		sprintf(msg, "%3d", c);
-		led_show(msg);
-		_delay_ms(800);
-	}
-	
-	ClrBit(PORT(BT_SW_PORT), BT_SW_BIT);	// no pullups
-	ClrBit(DDR(BT_SW_PORT), BT_SW_BIT);		// pin to high impedance input
-
-	led_clear();
+	//SetBit(DDR(AMP_SHDN_PORT), AMP_SHDN_BIT);	// pin to input
+	//SetBit(PORT(AMP_SHDN_PORT), AMP_SHDN_BIT);	// set
 }
 
 int main(void)
 {
 	init_hw();
-
-	dprint("i live...\n");
-
-	led_snake();
-
-	btsw_toggle();
-
-	for (;;)
+	
+	dprint("\nI live...\n");
+	
+	while (true)
 	{
 		led_show(" . . .");
 
@@ -101,7 +73,8 @@ int main(void)
 		temp = ds_get_temperature();
 		dprint("temperature = %2.4f\n", temp);
 
-		volt = get_voltage();
+		// the voltage divider factor
+		volt = get_voltage() * 3.7;
 		dprint("voltage = %f\n", volt);
 
 		sprintf(msg, "%2.1f", temp);
@@ -112,17 +85,13 @@ int main(void)
 		led_show(msg);
 		_delay_ms(2000);
 
+		float percent = (volt - 9.6) * 33.33;
+		sprintf(msg, "%2.1f", percent);
+		led_show(msg);
+		_delay_ms(2000);
+		
 		led_clear();
-
-		// wait for the button press
-		for (;;)
-		{
-			if ((PIN(SENS_BTN_PORT) & _BV(SENS_BTN_BIT)) == 0)
-				break;
-
-			_delay_ms(10);
-		}
 	}
-
+	
 	return 0;
 }

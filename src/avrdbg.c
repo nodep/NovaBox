@@ -9,7 +9,7 @@
 #include "avrdbg.h"
 #include "hw_setup.h"
 
-#define BAUD 250000
+#define BAUD 57600
 #include <util/setbaud.h>
 
 static int serial_putchar(char c, FILE *stream);
@@ -24,14 +24,6 @@ static int serial_putchar(char c, FILE *stream)
     UDR0 = c;
     return 0;
 }
-
-/*
-uint8_t serial_getchar(void)
-{
-	loop_until_bit_is_set(UCSR0A, RXC0);
-    return UDR0;
-}
-*/
 
 void dbgInit(void)
 {

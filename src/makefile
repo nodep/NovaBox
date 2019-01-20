@@ -1,26 +1,23 @@
-TARGET  = novabox
-DEVICE  = atmega328p
+TARGET  = whiteboy
+DEVICE  = atmega88p
 
-# first prototype
-#F_CPU   = 11059200
-F_CPU   = 8000000
+F_CPU   = 6400000
 
-FUSEH = 0xd9
-FUSEL = 0xff
+FUSEH = 0xdf
+FUSEL = 0xfd
 FUSEX = 0xff
 
-#AVRDUDE = avrdude -c stk500v2 -P avrdoper -B 0.1 -p $(DEVICE)
-AVRDUDE = avrdude -c stk500v2 -P avrdoper -p $(DEVICE)
+AVRDUDE = avrdude -c dragon_isp -p $(DEVICE)
 
 CFLAGS	= -I. -Wall -Os
-#CFLAGS += -DDBGPRINT
+CFLAGS += -DDBGPRINT
 
 LFLAGS  = -Wl,--relax
 LFLAGS += -u vfprintf -lprintf_flt -lm
 
 COMPILE = avr-gcc -mmcu=$(DEVICE) -DF_CPU=$(F_CPU) $(CFLAGS)
 
-OBJECTS = main.o led_display.o ds18b20.o avrdbg.o
+OBJECTS = main.o avrdbg.o led_display.o ds18b20.o
 
 hex: $(TARGET).hex
 

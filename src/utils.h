@@ -19,11 +19,6 @@
 #define PIN(a)				pp_replace(PIN, a)
 
 
-// enable/disable the counter overflow interrupt
-#define HeartbeatOn()		SetBit(TIMSK1, TOIE1)
-#define HeartbeatOff()		ClrBit(TIMSK1, TOIE1)
-
-
 // set and clear bit values
 #define _B0(b)		0
 #define _B1(b)		_BV(b)

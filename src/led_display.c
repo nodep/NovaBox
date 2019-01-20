@@ -49,28 +49,26 @@ void led_clear(void)
 	SetBit(PORT(LED_RST_PORT), LED_RST_BIT);
 }
 
-#ifdef FIRST_PROTOTYPE
-	const uint8_t digits[10] PROGMEM = {0xee,0x28,0xcd,0x6d,0x2b,0x67,0xe7,0x2e,0xef,0x6f};
-	const uint8_t letters[26] PROGMEM = {
+const uint8_t digits[10] PROGMEM = {0b01110111,		// 0
+									0b00010100,		// 1
+									0b10110011,		// 2
+									0b10110110,		// 3
+									0b11010100,		// 4
+									0b11100110,		// 5
+									0b11100111,		// 6
+									0b00110100,		// 7
+									0b11110111,		// 8
+									0b11110110,		// 9
+									};
+
+const uint8_t letters[26] PROGMEM =
+{
 	0x00,0x00,0xc6,0x00,0x00,		// ABCDE
 	0x00,0x00,0x00,0x00,0x00,		// FGHIJ
 	0x00,0x00,0x00,0x00,0x00,		// KLMON
 	0x00,0x00,0x00,0x00,0x00,		// PQRST
 	0x00,0xea,0x00,0x00,0x00,0x00,	// UVWXYZ
-	};
-
-#elif defined(SECOND_PROTOTYPE)
-	// second prototype
-	const uint8_t digits[10] PROGMEM = {0xee,0x60,0xab,0xe9,0x65,0xcd,0xcf,0xe0,0xef,0xed};
-
-	const uint8_t letters[26] PROGMEM = {
-	0xe7,0x4f,0x8e,0x6b,0x8f,		// ABCDE
-	0x87,0xce,0x67,0x60,0x6a,		// FGHIJ
-	0x67,0x0e,0xe6,0x67,0xee,		// KLMNO
-	0xa7,0xee,0xe7,0xcd,0xe0,		// PQRST
-	0x6e,0x6e,0x6e,0x67,0x65,0xab,	// UVWXYZ
-	};
-#endif
+};
 
 void led_show(const char* msg)
 {
@@ -92,7 +90,7 @@ void led_show(const char* msg)
 		// is the next char a dot?
 		while (msg[1] == '.')
 		{
-			shift_out[cnt] |= 0x10;
+			shift_out[cnt] |= 0x08;
 			++msg;
 		}
 
@@ -132,73 +130,37 @@ void delay_ms(uint16_t ms)
 	}
 }
 
-#ifdef FIRST_PROTOTYPE
-	const uint8_t snake_parts[28*3] PROGMEM =
-	{
-		0, _BV(6), 50,
-		0, _BV(5), 50,
-		0, _BV(3), 50,
-		0, _BV(2), 50,
-		0, _BV(1), 50,
-		0, _BV(7), 50,
-		0, _BV(6), 50,
-		0, _BV(4), 50,
-		1, _BV(6), 50,
-		1, _BV(5), 50,
-		1, _BV(3), 50,
-		1, _BV(2), 50,
-		1, _BV(1), 50,
-		1, _BV(7), 50,
-		1, _BV(6), 50,
-		1, _BV(4), 50,
-		2, _BV(6), 50,
-		2, _BV(5), 50,
-		2, _BV(3), 50,
-		2, _BV(2), 50,
-		2, _BV(1), 50,
-		2, _BV(7), 50,
-		2, _BV(6), 50,
-		2, _BV(5), 50,
-		2, _BV(0), 70,
-		1, _BV(0), 90,
-		0, _BV(0), 90,
-		0,		0,  0,
-	};
-
-#elif defined(SECOND_PROTOTYPE)
-
-	const uint8_t snake_parts[28*3] PROGMEM =
-	{
-		0, _BV(3), 50,
-		0, _BV(6), 50,
-		0, _BV(5), 50,
-		0, _BV(7), 50,
-		0, _BV(2), 50,
-		0, _BV(1), 50,
-		0, _BV(3), 50,
-		0, _BV(4), 50,
-		1, _BV(3), 50,
-		1, _BV(6), 50,
-		1, _BV(5), 50,
-		1, _BV(7), 50,
-		1, _BV(2), 50,
-		1, _BV(1), 50,
-		1, _BV(3), 50,
-		1, _BV(4), 50,
-		2, _BV(3), 50,
-		2, _BV(6), 50,
-		2, _BV(5), 50,
-		2, _BV(7), 50,
-		2, _BV(2), 50,
-		2, _BV(1), 50,
-		2, _BV(3), 50,
-		2, _BV(6), 50,
-		2, _BV(0), 70,
-		1, _BV(0), 90,
-		0, _BV(0), 90,
-		0,		0,  0,
-	};
-#endif
+const uint8_t snake_parts[28*3] PROGMEM =
+{
+	0, _BV(6), 50,
+	0, _BV(5), 50,
+	0, _BV(3), 50,
+	0, _BV(2), 50,
+	0, _BV(1), 50,
+	0, _BV(7), 50,
+	0, _BV(6), 50,
+	0, _BV(4), 50,
+	1, _BV(6), 50,
+	1, _BV(5), 50,
+	1, _BV(3), 50,
+	1, _BV(2), 50,
+	1, _BV(1), 50,
+	1, _BV(7), 50,
+	1, _BV(6), 50,
+	1, _BV(4), 50,
+	2, _BV(6), 50,
+	2, _BV(5), 50,
+	2, _BV(3), 50,
+	2, _BV(2), 50,
+	2, _BV(1), 50,
+	2, _BV(7), 50,
+	2, _BV(6), 50,
+	2, _BV(5), 50,
+	2, _BV(0), 70,
+	1, _BV(0), 90,
+	0, _BV(0), 90,
+	0,		0,  0,
+};
 
 void led_snake(void)
 {
