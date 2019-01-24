@@ -3,7 +3,6 @@
 #include <stdio.h>
 
 #include <avr/io.h>
-#include <avr/interrupt.h>
 #include <util/delay.h>
 
 #include "utils.h"
@@ -11,6 +10,7 @@
 #include "avrdbg.h"
 #include "led_display.h"
 #include "ds18b20.h"
+#include "twi.h"
 
 #define VOLTAGE_SAMPLES	16
 
@@ -53,6 +53,8 @@ void init_hw(void)
 	
 	ds_init(OW_THERM_RES_BITS_12);		// DS18B20 thermometer
 
+	twi_init();
+	
 	//SetBit(DDR(AMP_SHDN_PORT), AMP_SHDN_BIT);	// pin to input
 	//SetBit(PORT(AMP_SHDN_PORT), AMP_SHDN_BIT);	// set
 }
@@ -91,6 +93,7 @@ int main(void)
 		_delay_ms(2000);
 		
 		led_clear();
+		_delay_ms(20000);
 	}
 	
 	return 0;
