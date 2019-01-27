@@ -16,10 +16,6 @@ void twi_init(void)
 	// set the TWI frequency
 	TWSR = 0x00;
 	TWBR = 0x0B;	// 200kHz at 8Mhz
-	
-	// pullups - not needed cause we have external resistors
-	//SetBit(PORT(SDA_PORT), SDA_BIT);
-	//SetBit(PORT(SCL_PORT), SCL_BIT);
 }
 
 void twi_start(void)

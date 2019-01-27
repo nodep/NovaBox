@@ -17,7 +17,7 @@ LFLAGS += -u vfprintf -lprintf_flt -lm
 
 COMPILE = avr-gcc -mmcu=$(DEVICE) -DF_CPU=$(F_CPU) $(CFLAGS)
 
-OBJECTS = main.o avrdbg.o led_display.o ds18b20.o twi.o
+OBJECTS = main.o avrdbg.o led_display.o ds18b20.o twi.o ina219.o
 
 hex: $(TARGET).hex
 

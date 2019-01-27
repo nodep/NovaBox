@@ -1,6 +1,6 @@
 #pragma once
 
-// the thermometer
+// the thermometer DS18b20
 #define OW_DATA_PORT	C
 #define OW_DATA_BIT		2
 
