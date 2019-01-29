@@ -68,31 +68,30 @@ int main(void)
 
 	while (true)
 	{
-		led_show("8.8.8.");
+		led_show(" . . .");
 
 		//TogBit(PORT(AMP_SHDN_PORT), AMP_SHDN_BIT);
 		//_delay_ms(3000);
 
-		/*
 		char msg[6];
 		float temp = ds_get_temperature();
 		dprint("temperature = %2.4f\n", temp);
-		*/
 
 		// the voltage divider factor
 		float volt = get_voltage() * 3.7;
 		dprint("V avr = %f\n", volt);
-		
+
+		/*
 		const uint16_t bus_volt = ina_read(REG_BUS_VOLTAGE);
 		volt = (bus_volt >> 3) * 0.004;
 		dprint("V ina = %f\n", volt);
 
 		const int16_t shunt_v = ina_read(REG_SHUNT_VOLTAGE);
 		volt = shunt_v / 100.0;
-		dprint("V shunt = %f\n", volt);
+		dprint("V shunt = %.2f mV\n", volt);
 		dprint("---------------\n");
+		*/
 
-		/*
 		sprintf(msg, "%2.1f", temp);
 		led_show(msg);
 		_delay_ms(2000);
@@ -104,8 +103,6 @@ int main(void)
 		float percent = (volt - 9.6) * 33.33;
 		sprintf(msg, "%2.1f", percent);
 		led_show(msg);
-		*/
-		//led_clear();
 		_delay_ms(2000);
 	}
 	
