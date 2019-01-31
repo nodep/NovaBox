@@ -20,7 +20,7 @@ void init_hw(void)
 	
 	ds_init(OW_THERM_RES_BITS_12);		// DS18B20 thermometer
 
-	ina_init();
+	ina_init(true, 2.5);
 	
 	// amp shutdown pin
 	SetBit(DDR(AMP_SHDN_PORT), AMP_SHDN_BIT);
@@ -66,13 +66,45 @@ int main(void)
 	
 	dprint("\nI live...\n");
 
+	ina_data id;
+	uint8_t cnt;
+	const uint8_t SAMPLES = 100;
+	float power = 0;
+	float voltage = 0;
+	char msg[10];
+	float prev_power, prev_voltage;
+	prev_power = prev_voltage = 0;
 	while (true)
 	{
-		led_show(" . . .");
+		voltage = power = 0;
+		for (cnt = 0; cnt < SAMPLES; ++cnt)
+		{
+			if (cnt == 0)
+			{
+				sprintf(msg, "%.2f", prev_voltage);
+				led_show(msg);
+			}
+			else if (cnt == 10)
+			{
+				sprintf(msg, "%.2f", prev_power);
+				led_show(msg);
+			}
+			else if (cnt == 20)
+			{
+				led_clear();
+			}
+			
+			while (!ina_read_values(&id))
+				;
+			
+			power += id.power;
+			voltage += id.voltage;
+		}
+		
+		prev_voltage = voltage / SAMPLES;
+		prev_power = power / SAMPLES;
 
-		//TogBit(PORT(AMP_SHDN_PORT), AMP_SHDN_BIT);
-		//_delay_ms(3000);
-
+		/*
 		char msg[6];
 		float temp = ds_get_temperature();
 		dprint("temperature = %2.4f\n", temp);
@@ -81,7 +113,6 @@ int main(void)
 		float volt = get_voltage() * 3.7;
 		dprint("V avr = %f\n", volt);
 
-		/*
 		const uint16_t bus_volt = ina_read(REG_BUS_VOLTAGE);
 		volt = (bus_volt >> 3) * 0.004;
 		dprint("V ina = %f\n", volt);
@@ -90,7 +121,6 @@ int main(void)
 		volt = shunt_v / 100.0;
 		dprint("V shunt = %.2f mV\n", volt);
 		dprint("---------------\n");
-		*/
 
 		sprintf(msg, "%2.1f", temp);
 		led_show(msg);
@@ -104,6 +134,7 @@ int main(void)
 		sprintf(msg, "%2.1f", percent);
 		led_show(msg);
 		_delay_ms(2000);
+		*/
 	}
 	
 	return 0;
