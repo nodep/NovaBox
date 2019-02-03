@@ -74,6 +74,8 @@ int main(void)
 	char msg[10];
 	float prev_power, prev_voltage;
 	prev_power = prev_voltage = 0;
+	float wattHours = 0;
+	const float whFactor = 3600 * 1000L / 68.1;
 	while (true)
 	{
 		voltage = power = 0;
@@ -91,6 +93,11 @@ int main(void)
 			}
 			else if (cnt == 20)
 			{
+				sprintf(msg, "%.2f", wattHours);
+				led_show(msg);
+			}
+			else if (cnt == 30)
+			{
 				led_clear();
 			}
 			
@@ -99,6 +106,7 @@ int main(void)
 			
 			power += id.power;
 			voltage += id.voltage;
+			wattHours += id.power / whFactor;
 		}
 		
 		prev_voltage = voltage / SAMPLES;

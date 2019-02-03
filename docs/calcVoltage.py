@@ -104,40 +104,52 @@ def calcResistors():
 			
 def calcMax6457():
 	
-	vLiPo = 9.0		# LiPo cutoff
-	vPbAc = 11.2	# PbAc cutoff
+	lipoCell = 3.2	# cutoff voltage of a single LiPo cell
+	
+	vTripGoals = (	3 * lipoCell,	# 3 cell LiPo
+					4 * lipoCell,	# 4 cell LiPo
+					11.2,			# PbAc
+					)
+					
 	vTh = (1.093 + 1.151) / 2		# average of min and max from the datasheet
 
 	results = []
 	for r1 in resistors:
-		#		   r2  vTrip vErr  curr  r2  vTrip vErr  curr
-		res = [r1,  0,    0, 1000,   0,   0,    0, 1000,   0]
+		res = [r1]	# add the upper resistor in the voltage divider
+
+					# r2 vTrip  vErr  uA
+		res.extend([	0,   0, 1000,  0] * len(vTripGoals))
+		
 		for r2 in resistors:
+			# calc the trip and current for r1/r2
 			vTrip = (r1/r2 + 1) * vTh
 			current = vTrip / (r1 + r2)
 			
-			# calc LiPo
-			vErr = abs(vLiPo - vTrip)
-			if vErr < res[3]:
-				res[1] = r2
-				res[2] = vTrip
-				res[3] = vErr
-				res[4] = current * 1000
-
-			# calc PbAc				
-			vErr = abs(vPbAc - vTrip)
-			if vErr <= res[7]:
-				res[5] = r2
-				res[6] = vTrip
-				res[7] = vErr
-				res[8] = current * 1000
+			# compare with previous values
+			for cnt in range(len(vTripGoals)):
+				ndx = 1 + cnt*4
+				vErr = abs(vTripGoals[cnt] - vTrip)
 				
+				# is this better?
+				if vErr < res[ndx + 2]:
+					res[ndx]     = r2
+					res[ndx + 1] = vTrip
+					res[ndx + 2] = vErr
+					res[ndx + 3] = current * 1000
+
+		# totals for the XL table
+		res.extend(('=SO4+SO8+SO12', '=SO5+SO9+SO3'))
+
 		results.append(res)
 
-	print ('r1 K\tr2 K\tvTrip\tvErr\tuA\tr2 K\tvTrip\tvErr\tuA\tvErrTot')
+	print ('r1 K' + '\tr2 K\tvTrip\tvErr\tuA' * len(vTripGoals) + '\tvErrTot\tuA tot')
+
 	for res in results:
 		if res[0] >= 470:
-			print ('{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}'.format(res[0], res[1], res[2], res[3], res[4], res[5], res[6], res[7], res[8], res[3] + res[7]))
-
+			row = ''
+			for elem in res:
+				row += '\t' if row else ''
+				row += str(elem)
+			print (row)
 
 calcMax6457()
