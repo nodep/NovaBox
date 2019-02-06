@@ -1,0 +1,15 @@
+(module SW_SPDT (layer F.Cu) (tedit 5C570178)
+  (tags "capacitor handsolder")
+  (attr smd)
+  (fp_text reference REF** (at 2.54 0) (layer F.SilkS) hide
+    (effects (font (size 0.2 0.2) (thickness 0.05)))
+  )
+  (fp_text value Val (at 0.0127 0.5715) (layer Dwgs.User) hide
+    (effects (font (size 0.127 0.127) (thickness 0.001)))
+  )
+  (fp_line (start 5.461 -1.143) (end 0.889 -0.254) (layer F.SilkS) (width 0.15))
+  (fp_line (start 5.461 1.143) (end 0.889 0.254) (layer F.SilkS) (width 0.15))
+  (pad 2 thru_hole circle (at 0 0) (size 1.4 1.4) (drill 0.8) (layers *.Cu *.Mask))
+  (pad 1 thru_hole circle (at 6.35 1.27) (size 1.4 1.4) (drill 0.8) (layers *.Cu *.Mask))
+  (pad 3 thru_hole circle (at 6.35 -1.27) (size 1.4 1.4) (drill 0.8) (layers *.Cu *.Mask))
+)

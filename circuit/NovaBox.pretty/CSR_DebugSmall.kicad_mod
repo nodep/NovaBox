@@ -1,4 +1,4 @@
-(module CSR_DebugSmall (layer F.Cu) (tedit 5840791E)
+(module CSR_DebugSmall (layer F.Cu) (tedit 5C0430D1)
   (fp_text reference Ref (at -6.985 0 90) (layer F.SilkS)
     (effects (font (size 0.762 0.762) (thickness 0.127)))
   )
