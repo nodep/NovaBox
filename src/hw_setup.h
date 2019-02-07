@@ -8,9 +8,12 @@
 #define BATT_SNS_PORT	C
 #define BATT_SNS_BIT	0
 
-// amp shutdown
-#define AMP_SHDN_PORT	D
-#define AMP_SHDN_BIT	5
+// buttons
+#define REFRESH_PORT	B
+#define REFRESH_BIT		1
+
+#define CHANNEL_PORT	B
+#define CHANNEL_BIT		2
 
 // the LED display
 #define LED_DATA_PORT	D
@@ -21,3 +24,6 @@
 
 #define LED_RST_PORT	D
 #define LED_RST_BIT		3
+
+// EEPROM addresses
+#define WATT_HOURS_EEPROM	((float*) 0)

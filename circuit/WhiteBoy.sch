@@ -1,4 +1,5 @@
 EESchema Schematic File Version 4
+LIBS:WhiteBoy-cache
 EELAYER 26 0
 EELAYER END
 $Descr A3 16535 11693
@@ -3082,10 +3083,6 @@ Wire Wire Line
 	5300 7950 6000 7950
 Text Label 3000 7550 0    50   ~ 0
 SPI_PCM
-Text GLabel 10150 3850 2    50   Input ~ 0
-RFRSH
-Wire Wire Line
-	10050 3850 10150 3850
 Wire Wire Line
 	6300 8050 6500 8050
 Wire Wire Line
@@ -3273,4 +3270,8 @@ F 3 "" H 1950 3350 50  0001 C CNN
 $EndComp
 Wire Wire Line
 	1950 3250 1950 3350
+NoConn ~ 10050 3050
+NoConn ~ 10050 3150
+NoConn ~ 10050 3750
+NoConn ~ 10050 3850
 $EndSCHEMATC

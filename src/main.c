@@ -3,6 +3,7 @@
 #include <stdio.h>
 
 #include <avr/io.h>
+#include <avr/eeprom.h>
 #include <util/delay.h>
 
 #include "utils.h"
@@ -20,11 +21,14 @@ void init_hw(void)
 	
 	ds_init(OW_THERM_RES_BITS_12);		// DS18B20 thermometer
 
-	ina_init(true, 2.5);
+	ina_init(true, 2.5);	// init the power meter
 	
-	// amp shutdown pin
-	SetBit(DDR(AMP_SHDN_PORT), AMP_SHDN_BIT);
-	ClrBit(PORT(AMP_SHDN_PORT), AMP_SHDN_BIT);
+	// buttons
+	ClrBit(DDR(REFRESH_PORT), REFRESH_BIT);
+	SetBit(PORT(REFRESH_PORT), REFRESH_BIT);		// pullup
+	
+	ClrBit(DDR(CHANNEL_PORT), CHANNEL_BIT);
+	SetBit(PORT(CHANNEL_PORT), CHANNEL_BIT);		// pullup
 }
 
 float get_voltage(void)
@@ -69,16 +73,21 @@ int main(void)
 	ina_data id;
 	uint8_t cnt;
 	const uint8_t SAMPLES = 100;
-	float power = 0;
-	float voltage = 0;
+	float power, shunt_voltage, bus_voltage;
 	char msg[10];
-	float prev_power, prev_voltage;
+	float prev_power, prev_voltage, wattHours;
 	prev_power = prev_voltage = 0;
-	float wattHours = 0;
+	
+	// check if EEPROM contains invalid value
+	if (eeprom_read_word(0) == 0xffff)
+		wattHours = 0;
+	else
+		wattHours = eeprom_read_float(WATT_HOURS_EEPROM);
+
 	const float whFactor = 3600 * 1000L / 68.1;
 	while (true)
 	{
-		voltage = power = 0;
+		shunt_voltage = bus_voltage = power = 0;
 		for (cnt = 0; cnt < SAMPLES; ++cnt)
 		{
 			if (cnt == 0)
@@ -101,16 +110,20 @@ int main(void)
 				led_clear();
 			}
 			
+			dprint("%.6f ", wattHours);
+			
 			while (!ina_read_values(&id))
 				;
 			
 			power += id.power;
-			voltage += id.voltage;
+			bus_voltage += id.bus_voltage;
+			shunt_voltage += id.shunt_voltage;
 			wattHours += id.power / whFactor;
 		}
 		
-		prev_voltage = voltage / SAMPLES;
+		prev_voltage = bus_voltage / SAMPLES;
 		prev_power = power / SAMPLES;
+		eeprom_write_float(WATT_HOURS_EEPROM, wattHours);
 
 		/*
 		char msg[6];

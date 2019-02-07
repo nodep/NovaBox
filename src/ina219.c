@@ -61,6 +61,7 @@ void ina_init(const bool max_bus_16v, const float max_current)
 	ina_write(REG_CONFIGURATION, 0xffff);
 
 	// set the bus voltage range to 16V,
+	// PGA/8, range 320mV
 	// averaging to highest value (128 samples, 68.1ms)
 	ina_write(REG_CONFIGURATION, max_bus_16v ? 0x1fff : 0x3fff);
 	
@@ -74,20 +75,22 @@ void ina_init(const bool max_bus_16v, const float max_current)
 
 bool ina_read_values(ina_data* data)
 {
-	const int16_t bus_voltage_rv = ina_read(REG_BUS_VOLTAGE);
-	const bool conversion_ready = (bus_voltage_rv & 2) != 0;
+	const int16_t bus_voltage_regval = ina_read(REG_BUS_VOLTAGE);
+	const bool conversion_ready = (bus_voltage_regval & 2) != 0;
 	
 	if (conversion_ready)
 	{
-		const int16_t current_rv 	= ina_read(REG_CURRENT);
-		const int16_t power_rv 		= ina_read(REG_POWER);
+		const int16_t shunt_voltage_regval 	= ina_read(REG_SHUNT_VOLTAGE);
+		const int16_t current_regval 		= ina_read(REG_CURRENT);
+		const int16_t power_regval 			= ina_read(REG_POWER);
 
-		data->overflow = (bus_voltage_rv & 1) != 0;
-		data->voltage = (bus_voltage_rv >> 3) * 0.004;
-		data->power = power_rv * power_lsb;
-		data->current = current_rv * current_lsb;
+		data->overflow = (bus_voltage_regval & 1) != 0;
+		data->bus_voltage = (bus_voltage_regval >> 3) * 0.004;
+		data->power = power_regval * power_lsb;
+		data->current = current_regval * current_lsb;
+		data->shunt_voltage = shunt_voltage_regval * 0.00001;
 		
-		dprint("V=%.2f I=%.3f P=%.2f\n", data->voltage, data->current, data->power);
+		dprint("sV=%.5f bV=%.2f I=%.3f P=%.2f\n", data->shunt_voltage, data->bus_voltage, data->current, data->power);
 		
 		return true;
 	}
