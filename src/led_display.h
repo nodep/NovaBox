@@ -13,6 +13,7 @@ void led_clear(void);
 // 1.2.3.
 
 void led_show(const char* msg);
+void led_show_float(const float num);
 
 // shifts a single bit through the display
 void led_snake(void);

@@ -4,8 +4,8 @@ void ina_init(const bool max_bus_16v, const float max_current);
 
 typedef struct
 {
-	float	shunt_voltage;
-	float	bus_voltage;
+	float	shuntVoltage;
+	float	busVoltage;
 	float	current;
 	float	power;
 	bool	overflow;

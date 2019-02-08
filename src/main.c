@@ -73,10 +73,10 @@ int main(void)
 	ina_data id;
 	uint8_t cnt;
 	const uint8_t SAMPLES = 100;
-	float power, shunt_voltage, bus_voltage;
-	char msg[10];
-	float prev_power, prev_voltage, wattHours;
-	prev_power = prev_voltage = 0;
+	float power, shuntVoltage, busVoltage;
+	//char msg[10];
+	float prevPower, prevVoltage, wattHours;
+	prevPower = prevVoltage = 0;
 	
 	// check if EEPROM contains invalid value
 	if (eeprom_read_word(0) == 0xffff)
@@ -87,42 +87,42 @@ int main(void)
 	const float whFactor = 3600 * 1000L / 68.1;
 	while (true)
 	{
-		shunt_voltage = bus_voltage = power = 0;
+		shuntVoltage = busVoltage = power = 0;
 		for (cnt = 0; cnt < SAMPLES; ++cnt)
 		{
 			if (cnt == 0)
 			{
-				sprintf(msg, "%.2f", prev_voltage);
-				led_show(msg);
+				//sprintf(msg, "%.2f", prevVoltage);
+				led_show_float(prevVoltage);
 			}
 			else if (cnt == 10)
 			{
-				sprintf(msg, "%.2f", prev_power);
-				led_show(msg);
+				//sprintf(msg, "%.2f", prevPower);
+				led_show_float(prevPower);
 			}
 			else if (cnt == 20)
 			{
-				sprintf(msg, "%.2f", wattHours);
-				led_show(msg);
+				//sprintf(msg, "%.2f", wattHours);
+				led_show_float(wattHours);
 			}
 			else if (cnt == 30)
 			{
 				led_clear();
 			}
 			
-			dprint("%.6f ", wattHours);
-			
 			while (!ina_read_values(&id))
 				;
 			
 			power += id.power;
-			bus_voltage += id.bus_voltage;
-			shunt_voltage += id.shunt_voltage;
+			busVoltage += id.busVoltage;
+			shuntVoltage += id.shuntVoltage;
 			wattHours += id.power / whFactor;
+
+			dprint("Wh=%f sV=%.5f bV=%.2f I=%.3f P=%.2f\n", wattHours, id.shuntVoltage, id.busVoltage, id.current, id.power);
 		}
 		
-		prev_voltage = bus_voltage / SAMPLES;
-		prev_power = power / SAMPLES;
+		prevVoltage = busVoltage / SAMPLES;
+		prevPower = power / SAMPLES;
 		eeprom_write_float(WATT_HOURS_EEPROM, wattHours);
 
 		/*
@@ -134,11 +134,11 @@ int main(void)
 		float volt = get_voltage() * 3.7;
 		dprint("V avr = %f\n", volt);
 
-		const uint16_t bus_volt = ina_read(REG_BUS_VOLTAGE);
+		const uint16_t bus_volt = ina_read(REG_busVoltage);
 		volt = (bus_volt >> 3) * 0.004;
 		dprint("V ina = %f\n", volt);
 
-		const int16_t shunt_v = ina_read(REG_SHUNT_VOLTAGE);
+		const int16_t shunt_v = ina_read(REG_shuntVoltage);
 		volt = shunt_v / 100.0;
 		dprint("V shunt = %.2f mV\n", volt);
 		dprint("---------------\n");

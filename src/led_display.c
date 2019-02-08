@@ -9,6 +9,55 @@
 #include "led_display.h"
 #include "utils.h"
 
+void float2str(const float num, char* outBuff)
+{
+	// error check
+	const char* PROGMEM checked = 0;
+	
+	if (num >= 1000.0)
+		checked = PSTR("OVF");
+	else if (num < 0)
+		checked = PSTR("ERR");
+	else if (num <= 0.005)
+		checked = PSTR("0.00");
+	
+	if (checked)
+	{
+		strcpy_P(outBuff, checked);
+		return;
+	}
+	
+	// normalize the float into an integer with some poor man's rounding
+	uint16_t norm;
+	int8_t dotPos = -1;
+	if (num >= 100.0)
+		norm = num + .5;
+	else if (num >= 10.0)
+		norm = (num * 10) + .5,		dotPos = 1;
+	else
+		norm = (num * 100) + .5,	dotPos = 0;
+	
+	// now output the digits and the dot
+	char* outPtr = outBuff;
+	*outPtr++ = '0' + (norm / 100);
+	if (dotPos == 0)
+		*outPtr++ = '.';
+	
+	*outPtr++ = '0' + (norm % 100) / 10;
+	if (dotPos == 1)
+		*outPtr++ = '.';
+	
+	*outPtr++ = '0' + (norm % 10);
+	*outPtr++ = '\0';
+}
+
+void led_show_float(const float num)
+{
+	char numBuff[5];
+	float2str(num, numBuff);
+	led_show(numBuff);
+}
+
 void led_shift_byte(uint8_t byte)
 {
 	uint8_t bcnt;
