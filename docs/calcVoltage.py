@@ -33,9 +33,11 @@ def makeAllResistors(resIn):
 		resistors.append(r * 10)
 	for r in resIn:
 		resistors.append(r * 100)
+	for r in resIn:
+		resistors.append(r * 1000)
 	return resistors
 
-resistors = makeAllResistors(resistors_2p)
+resistors = makeAllResistors(resistors_1p)
 
 ##################################################
 ##################################################
@@ -119,12 +121,12 @@ def calcMax6457():
 
 					# r2 vTrip  vErr  uA
 		res.extend([	0,   0, 1000,  0] * len(vTripGoals))
-		
+
 		for r2 in resistors:
 			# calc the trip and current for r1/r2
 			vTrip = (r1/r2 + 1) * vTh
 			current = vTrip / (r1 + r2)
-			
+
 			# compare with previous values
 			for cnt in range(len(vTripGoals)):
 				ndx = 1 + cnt*4
@@ -138,18 +140,18 @@ def calcMax6457():
 					res[ndx + 3] = current * 1000
 
 		# totals for the XL table
-		res.extend(('=SO4+SO8+SO12', '=SO5+SO9+SO3'))
+		res.extend(('=SO4+SO8+SO12', ))
 
 		results.append(res)
 
-	print ('r1 K' + '\tr2 K\tvTrip\tvErr\tuA' * len(vTripGoals) + '\tvErrTot\tuA tot')
+	print ('r1 K' + '\tr2 K\tvTrip\tvErr\tuA' * len(vTripGoals) + '\tvErrTot')
 
 	for res in results:
 		if res[0] >= 470:
 			row = ''
 			for elem in res:
 				row += '\t' if row else ''
-				row += str(elem)
+				row += elem if isinstance(elem, str) else str(round(elem, 3))
 			print (row)
 
 calcMax6457()
