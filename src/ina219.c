@@ -62,7 +62,7 @@ void ina_init(const bool max_bus_16v, const float maxCurrent)
 
 	// set the bus voltage range to 16V,
 	// PGA/8, range 320mV
-	// averaging to highest value (128 samples, 68.1ms)
+	// averaging to highest value (128 samples for bus ans shunt voltage, full conversion time == 128ms)
 	ina_write(REG_CONFIGURATION, max_bus_16v ? 0x1fff : 0x3fff);
 	
 	// set the calibration register

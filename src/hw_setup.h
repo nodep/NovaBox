@@ -27,3 +27,5 @@
 
 // EEPROM addresses
 #define WATT_HOURS_EEPROM	((float*) 0)
+#define AMP_HOURS_EEPROM	((float*) 4)
+#define MIN_VOLTAGE_EEPROM	((float*) 8)

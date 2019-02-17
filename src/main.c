@@ -19,7 +19,7 @@ void init_hw(void)
 	
 	led_init();				// led display
 	
-	ds_init(OW_THERM_RES_BITS_12);		// DS18B20 thermometer
+	//ds_init(OW_THERM_RES_BITS_12);		// DS18B20 thermometer
 
 	ina_init(true, 2.5);	// init the power meter
 	
@@ -70,61 +70,85 @@ int main(void)
 	
 	dprint("\nI live...\n");
 
-	ina_data id;
-	uint8_t cnt;
-	const uint8_t SAMPLES = 100;
-	float power, shuntVoltage, busVoltage;
-	//char msg[10];
-	float prevPower, prevVoltage, wattHours;
-	prevPower = prevVoltage = 0;
+	// read the persistent values
+	float wattHours, ampHours, minVoltage;
+	wattHours = ampHours = 0.0;
+	minVoltage = 100.0;
 	
-	// check if EEPROM contains invalid value
-	if (eeprom_read_word(0) == 0xffff)
-		wattHours = 0;
-	else
+	// check if EEPROM contains a valid value
+	if (eeprom_read_word(0) != 0xffff)
+	{
 		wattHours = eeprom_read_float(WATT_HOURS_EEPROM);
+		ampHours = eeprom_read_float(AMP_HOURS_EEPROM);
+		minVoltage = eeprom_read_float(MIN_VOLTAGE_EEPROM);
+	}
 
-	const float whFactor = 3600 * 1000L / 68.1;
+	const uint8_t CLEAR_COUNTER_MAX = 16;
+	const uint16_t REFRESH_EVERY_CYCLES = 300;
+	uint8_t clearCounter = 0;
+	const float timeRatio = 3600 * 1000L / 128.0;
+	uint32_t totalSamples = 0, prevRefresh = 0;
 	while (true)
 	{
-		shuntVoltage = busVoltage = power = 0;
-		for (cnt = 0; cnt < SAMPLES; ++cnt)
-		{
-			if (cnt == 0)
-			{
-				//sprintf(msg, "%.2f", prevVoltage);
-				led_show_float(prevVoltage);
-			}
-			else if (cnt == 10)
-			{
-				//sprintf(msg, "%.2f", prevPower);
-				led_show_float(prevPower);
-			}
-			else if (cnt == 20)
-			{
-				//sprintf(msg, "%.2f", wattHours);
-				led_show_float(wattHours);
-			}
-			else if (cnt == 30)
-			{
-				led_clear();
-			}
-			
-			while (!ina_read_values(&id))
-				;
-			
-			power += id.power;
-			busVoltage += id.busVoltage;
-			shuntVoltage += id.shuntVoltage;
-			wattHours += id.power / whFactor;
+		ina_data id;
+		// read the ina data
+		while (!ina_read_values(&id))
+			;
 
-			dprint("Wh=%f sV=%.5f bV=%.2f I=%.3f P=%.2f\n", wattHours, id.shuntVoltage, id.busVoltage, id.current, id.power);
-		}
+		if (minVoltage > id.busVoltage)
+			minVoltage = id.busVoltage;
 		
-		prevVoltage = busVoltage / SAMPLES;
-		prevPower = power / SAMPLES;
-		eeprom_write_float(WATT_HOURS_EEPROM, wattHours);
+		if ((PIN(CHANNEL_PORT) & _BV(CHANNEL_BIT)) == 0)
+		{
+			if (clearCounter < CLEAR_COUNTER_MAX+1)
+				clearCounter++;
+			
+			if (clearCounter == 1)
+				led_show("clr");
+			
+			if (clearCounter == CLEAR_COUNTER_MAX)
+			{
+				led_show("ok");
+				wattHours = ampHours = 0;
+				minVoltage = id.busVoltage;
+			}
+		}
+		else
+		{
+			if (clearCounter)
+				led_clear();
+			
+			clearCounter = 0;
+		}
 
+		uint16_t sinceRefresh = totalSamples - prevRefresh;
+		if (sinceRefresh == REFRESH_EVERY_CYCLES  ||  (PIN(REFRESH_PORT) & _BV(REFRESH_BIT)) == 0)
+		{
+			prevRefresh = totalSamples;
+			sinceRefresh = 0;
+			
+			eeprom_write_float(AMP_HOURS_EEPROM, ampHours);
+			eeprom_write_float(WATT_HOURS_EEPROM, wattHours);
+			eeprom_write_float(MIN_VOLTAGE_EEPROM, minVoltage);
+		}
+
+		if (sinceRefresh == 0)
+			led_show_float(id.busVoltage);
+		else if (sinceRefresh == 10)
+			led_show_float(id.power);
+		else if (sinceRefresh == 20)
+			led_show_float(ampHours);
+		else if (sinceRefresh == 30)
+			led_show_float(minVoltage);
+		else if (sinceRefresh == 40)
+			led_clear();
+		
+		wattHours += id.power / timeRatio;
+		ampHours += id.current / timeRatio;
+		++totalSamples;
+
+		dprint("Wh=%f Ah=%f bV=%.2f I=%.3f P=%.2f minV=%.2f lc=%lu\n", wattHours, ampHours, id.busVoltage, id.current, id.power, minVoltage, totalSamples);
+		
 		/*
 		char msg[6];
 		float temp = ds_get_temperature();

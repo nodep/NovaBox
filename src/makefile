@@ -1,9 +1,9 @@
 TARGET  = whiteboy
 DEVICE  = atmega88p
 
-F_CPU   = 6400000
+F_CPU   = 3686000
 
-FUSEH = 0xdf
+FUSEH = 0xd7
 FUSEL = 0xfd
 FUSEX = 0xff
 
@@ -17,7 +17,8 @@ LFLAGS += -u vfprintf -lprintf_flt -lm
 
 COMPILE = avr-gcc -mmcu=$(DEVICE) -DF_CPU=$(F_CPU) $(CFLAGS)
 
-OBJECTS = main.o avrdbg.o led_display.o ds18b20.o twi.o ina219.o
+OBJECTS = main.o avrdbg.o led_display.o twi.o ina219.o
+# ds18b20.o 
 
 hex: $(TARGET).hex
 
