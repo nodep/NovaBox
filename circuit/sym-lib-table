@@ -1,4 +1,3 @@
 (sym_lib_table
   (lib (name NovaBox)(type Legacy)(uri ${KIPRJMOD}/NovaBox.lib)(options "")(descr ""))
-  (lib (name WhiteBoy-rescue)(type Legacy)(uri ${KIPRJMOD}/WhiteBoy-rescue.lib)(options "")(descr ""))
 )

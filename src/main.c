@@ -86,7 +86,7 @@ int main(void)
 	const uint8_t CLEAR_COUNTER_MAX = 16;
 	const uint16_t REFRESH_EVERY_CYCLES = 300;
 	uint8_t clearCounter = 0;
-	const float timeRatio = 3600 * 1000L / 128.0;
+	const float timeRatio = 3600 * 1000L / (68.1*2);
 	uint32_t totalSamples = 0, prevRefresh = 0;
 	while (true)
 	{

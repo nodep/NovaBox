@@ -1,4 +1,4 @@
-(module CPOL_D10_P4.5 (layer F.Cu) (tedit 5C71AABD)
+(module CPOL_D16_P7.5 (layer F.Cu) (tedit 5C71AABD)
   (fp_text reference REF** (at -2.54 3.81) (layer F.SilkS)
     (effects (font (size 0.75 0.75) (thickness 0.15)))
   )
