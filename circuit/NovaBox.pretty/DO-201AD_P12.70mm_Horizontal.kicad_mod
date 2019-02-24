@@ -1,4 +1,4 @@
-(module DO-201AD_P12.70mm_Horizontal (layer F.Cu) (tedit 5C02FE3F)
+(module DO-201AD_P12.70mm_Horizontal (layer F.Cu) (tedit 5C72C050)
   (descr "D, DO-201AD series, Axial, Horizontal, pin pitch=12.7mm, , length*diameter=9.5*5.2mm^2, , http://www.diodes.com/_files/packages/DO-201AD.pdf")
   (tags "D DO-201AD series Axial Horizontal pin pitch 12.7mm  length 9.5mm diameter 5.2mm")
   (fp_text reference REF** (at 0 0 180) (layer F.SilkS)
@@ -15,8 +15,8 @@
   (fp_line (start -4.81 2.66) (end 4.81 2.66) (layer F.SilkS) (width 0.12))
   (fp_line (start 4.81 2.66) (end 4.81 1.78) (layer F.SilkS) (width 0.12))
   (fp_line (start -3.325 -2.66) (end -3.325 2.66) (layer F.SilkS) (width 0.12))
-  (pad 1 thru_hole rect (at -6.35 0) (size 3.2 3.2) (drill 1.6) (layers *.Cu *.Mask))
-  (pad 2 thru_hole oval (at 6.35 0) (size 3.2 3.2) (drill 1.6) (layers *.Cu *.Mask))
+  (pad 1 thru_hole roundrect (at -6.35 0) (size 2.8 2.8) (drill 1.8) (layers *.Cu *.Mask) (roundrect_rratio 0.25))
+  (pad 2 thru_hole circle (at 6.35 0) (size 2.8 2.8) (drill 1.8) (layers *.Cu *.Mask))
   (model ${KISYS3DMOD}/Diode_THT.3dshapes/D_DO-201AD_P12.70mm_Horizontal.wrl
     (offset (xyz -6.35 0 0))
     (scale (xyz 1 1 1))
