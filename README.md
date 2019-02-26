@@ -1,6 +1,6 @@
 # NovaBox
 
-This is a circuit and PCB design for a Bluetooth stereo amplifier
+This repo contains circuit and PCB designs for Bluetooth amplifiers
 
 ### Why build yet another Bluetooth speaker?
 

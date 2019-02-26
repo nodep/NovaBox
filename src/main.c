@@ -21,7 +21,7 @@ void init_hw(void)
 	
 	//ds_init(OW_THERM_RES_BITS_12);		// DS18B20 thermometer
 
-	ina_init(true, 2.5);	// init the power meter
+	ina_init(false, 2.5);	// init the power meter, 32V full range
 	
 	// buttons
 	ClrBit(DDR(REFRESH_PORT), REFRESH_BIT);
@@ -95,6 +95,9 @@ int main(void)
 		while (!ina_read_values(&id))
 			;
 
+		if (id.overflow)
+			led_show("ovf");
+		
 		if (minVoltage > id.busVoltage)
 			minVoltage = id.busVoltage;
 		
