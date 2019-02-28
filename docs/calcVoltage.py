@@ -37,7 +37,7 @@ def makeAllResistors(resIn):
 		resistors.append(r * 1000)
 	return resistors
 
-resistors = makeAllResistors(resistors_1p)
+resistors = makeAllResistors(resistors_2p)
 
 ##################################################
 ##################################################
@@ -108,19 +108,19 @@ def calcMax6457():
 	
 	lipoCell = 3.2	# cutoff voltage of a single LiPo cell
 	
-	vTripGoals = (	3 * lipoCell,	# 3 cell LiPo
-					4 * lipoCell,	# 4 cell LiPo
-					11.2,			# PbAc
+	vTripGoals = (	3,	# 3 cell LiPo
+					4,	# 4 cell LiPo
+					6,	# 6 cell LiPo
 					)
 					
 	vTh = (1.093 + 1.151) / 2		# average of min and max from the datasheet
 
 	results = []
 	for r1 in resistors:
-		res = [r1]	# add the upper resistor in the voltage divider
+		res = [r1]	# add the upper resistor in the voltage divider - the one between VDD and IN1 in MAX6457
 
-					# r2 vTrip  vErr  uA
-		res.extend([	0,   0, 1000,  0] * len(vTripGoals))
+					# r2 vTrip  uA  vErr  vErr cell
+		res.extend([	0,   0,  0, 1000,      1000] * len(vTripGoals))
 
 		for r2 in resistors:
 			# calc the trip and current for r1/r2
@@ -129,22 +129,34 @@ def calcMax6457():
 
 			# compare with previous values
 			for cnt in range(len(vTripGoals)):
-				ndx = 1 + cnt*4
-				vErr = abs(vTripGoals[cnt] - vTrip)
+				vDest = vTripGoals[cnt] * lipoCell
+				vErr = vTrip - vDest
+				vErrCell = vErr / vTripGoals[cnt]
 				
 				# is this better?
-				if vErr < res[ndx + 2]:
+				ndx = 1 + cnt*5
+				if abs(vErrCell) < abs(res[ndx + 4]):
 					res[ndx]     = r2
 					res[ndx + 1] = vTrip
-					res[ndx + 2] = vErr
-					res[ndx + 3] = current * 1000
+					res[ndx + 2] = current * 1000
+					res[ndx + 3] = vErr
+					res[ndx + 4] = vErrCell
+					
+			# find the min of vErrCell
+			vErrCellMin = 0
+			for cnt in range(len(vTripGoals)):
+				vErrCell = res[5 + cnt*5]
+				vErrCellMin = min(vErrCell, vErrCellMin)
 
-		# totals for the XL table
-		res.extend(('=SO4+SO8+SO12', ))
+		res.append(vErrCellMin)
 
 		results.append(res)
 
-	print ('r1 K' + '\tr2 K\tvTrip\tvErr\tuA' * len(vTripGoals) + '\tvErrTot')
+	# sort by vErrMin
+	results.sort(key = lambda results: results[len(res) - 1])
+	
+	header = 'r1 K' + '\tr2 K\tvTrip {}\tuA\tvErr\tvErr cell' * len(vTripGoals) + '\tmin vErr cell'
+	print (header.format(round(vTripGoals[0] * lipoCell, 1), round(vTripGoals[1] * lipoCell, 1), round(vTripGoals[2] * lipoCell, 1)))
 
 	for res in results:
 		if res[0] >= 470:

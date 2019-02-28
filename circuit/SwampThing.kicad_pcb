@@ -798,7 +798,7 @@
     (fp_text reference Q1 (at -5.684 0) (layer F.SilkS)
       (effects (font (size 1 1) (thickness 0.15)))
     )
-    (fp_text value IRF530NSPbF (at -1.905 0.635) (layer F.Fab)
+    (fp_text value IRFS52N15DTRLP (at -1.905 0.635) (layer F.Fab)
       (effects (font (size 0.05 0.05) (thickness 0.01)))
     )
     (fp_line (start -2.275 -3.05) (end -2.275 -3.4) (layer F.SilkS) (width 0.12))
@@ -1432,7 +1432,7 @@
     (fp_text reference R3 (at 0 0) (layer F.SilkS)
       (effects (font (size 0.75 0.75) (thickness 0.15)))
     )
-    (fp_text value 750K (at -2.286 0) (layer F.Fab) hide
+    (fp_text value 16.9M (at -2.286 0) (layer F.Fab) hide
       (effects (font (size 0.127 0.127) (thickness 0.001)))
     )
     (fp_line (start 3.048 0) (end 4.064 0) (layer F.SilkS) (width 0.2))
@@ -1562,7 +1562,7 @@
     (fp_text reference R8 (at 0 0 180) (layer F.SilkS)
       (effects (font (size 0.75 0.75) (thickness 0.15)))
     )
-    (fp_text value 115K (at -2.286 0 180) (layer F.Fab) hide
+    (fp_text value 1.05M (at -2.286 0 180) (layer F.Fab) hide
       (effects (font (size 0.127 0.127) (thickness 0.001)))
     )
     (fp_line (start 3.048 0) (end 4.064 0) (layer F.SilkS) (width 0.2))
@@ -1588,7 +1588,7 @@
     (fp_text reference R9 (at 0 0 180) (layer F.SilkS)
       (effects (font (size 0.75 0.75) (thickness 0.15)))
     )
-    (fp_text value 90K9 (at -2.286 0 180) (layer F.Fab) hide
+    (fp_text value 1.62M (at -2.286 0 180) (layer F.Fab) hide
       (effects (font (size 0.127 0.127) (thickness 0.001)))
     )
     (fp_line (start 3.048 0) (end 4.064 0) (layer F.SilkS) (width 0.2))
@@ -1614,7 +1614,7 @@
     (fp_text reference R10 (at 0 0 180) (layer F.SilkS)
       (effects (font (size 0.75 0.75) (thickness 0.15)))
     )
-    (fp_text value 90K9 (at -2.286 0 180) (layer F.Fab) hide
+    (fp_text value 2.26M (at -2.286 0 180) (layer F.Fab) hide
       (effects (font (size 0.127 0.127) (thickness 0.001)))
     )
     (fp_line (start 3.048 0) (end 4.064 0) (layer F.SilkS) (width 0.2))
@@ -3097,7 +3097,7 @@
     )
   )
 
-  (module NovaBox:XT60PW-M (layer F.Cu) (tedit 5C75A3C0) (tstamp 5C731F8C)
+  (module NovaBox:XT60PW-M (layer F.Cu) (tedit 5C785E1E) (tstamp 5C731F8C)
     (at 47.625 112.395 90)
     (path /5BF5B195)
     (fp_text reference BT1 (at 0 0 90) (layer F.SilkS)
