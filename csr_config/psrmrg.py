@@ -10,7 +10,6 @@ class PsrEntry:
 		
 	def __repr__(self):
 		return '// {}\n{} = {}{}'.format(self.name, self.addr, self.value, self.comment)
-		#return '{}\t{}\t{}\t{}\n'.format(self.name, self.addr, self.value, self.comment)
 
 def readPsrFile(fileName):
 
@@ -54,7 +53,7 @@ def usage():
 	
 try:
 	if len(sys.argv) < 4:
-		raise RuntimeError('not enough params')
+		raise RuntimeError('Error: not enough params')
 		
 	origVals = readPsrFile(sys.argv[1])
 	newVals = readPsrFile(sys.argv[2])
@@ -86,7 +85,7 @@ except (FileNotFoundError, RuntimeError) as ex:
 	exit(1)
 	
 except:
-	print ('unknown exception')
+	print ('Error: unknown exception')
 	usage()
 	exit(1)
 
