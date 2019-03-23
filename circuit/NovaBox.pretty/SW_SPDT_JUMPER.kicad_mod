@@ -1,4 +1,4 @@
-(module SW_SPDT_JUMPER (layer F.Cu) (tedit 5C7A5CDE)
+(module SW_SPDT_JUMPER (layer F.Cu) (tedit 5C964FDA)
   (fp_text reference REF** (at 0 1.905) (layer F.SilkS)
     (effects (font (size 0.75 0.75) (thickness 0.15)))
   )
@@ -12,9 +12,9 @@
   (pad 1 thru_hole circle (at -2.54 0) (size 1.524 1.524) (drill 0.9) (layers *.Cu *.Mask))
   (pad 2 thru_hole roundrect (at 0 0) (size 1.524 1.524) (drill 0.9) (layers *.Cu *.Mask) (roundrect_rratio 0.25))
   (pad 3 thru_hole circle (at 2.54 0) (size 1.524 1.524) (drill 0.9) (layers *.Cu *.Mask))
-  (model ${KISYS3DMOD}/Connector_PinHeader_2.54mm.3dshapes/PinHeader_1x03_P2.54mm_Vertical.wrl
-    (offset (xyz 2.54 0 0))
+  (model ${KISYS3DMOD}/Pin_Headers.3dshapes/Pin_Header_Straight_1x03.wrl
+    (at (xyz 0 0 0))
     (scale (xyz 1 1 1))
-    (rotate (xyz 0 0 90))
+    (rotate (xyz 0 0 0))
   )
 )
