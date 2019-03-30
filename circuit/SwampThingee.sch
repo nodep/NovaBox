@@ -1,6 +1,6 @@
 EESchema Schematic File Version 4
 LIBS:SwampThingee-cache
-EELAYER 26 0
+EELAYER 29 0
 EELAYER END
 $Descr A3 16535 11693
 encoding utf-8
@@ -1697,11 +1697,7 @@ Connection ~ 8850 4400
 Wire Wire Line
 	3350 7100 3150 7100
 Wire Wire Line
-	3150 7100 3150 6750
-Wire Wire Line
 	3050 6400 3050 7300
-Wire Wire Line
-	2950 6600 2950 7200
 $Comp
 L power:GND #PWR040
 U 1 1 5C711C89
@@ -1998,17 +1994,6 @@ F 3 "" H 1050 8250 50  0001 C CNN
 $EndComp
 Wire Wire Line
 	2300 7900 2300 8100
-$Comp
-L NovaBox:R_Pack04 RN1
-U 1 1 5C865A84
-P 2450 6550
-F 0 "RN1" V 2775 6550 50  0000 C CNN
-F 1 "1K" V 2684 6550 50  0000 C CNN
-F 2 "NovaBox:Resistor_Array_x4_1206" V 2725 6550 50  0001 C CNN
-F 3 "" H 2450 6550 50  0001 C CNN
-	1    2450 6550
-	0    1    -1   0   
-$EndComp
 Wire Wire Line
 	1950 6600 2100 6600
 Wire Wire Line
@@ -2035,22 +2020,13 @@ Wire Wire Line
 Wire Wire Line
 	2650 6550 2750 6550
 Wire Wire Line
-	2750 6550 2750 6600
-Wire Wire Line
 	2750 6650 2650 6650
-Connection ~ 2750 6600
-Wire Wire Line
-	2750 6600 2750 6650
 Wire Wire Line
 	2750 6400 2750 6450
 Wire Wire Line
 	2750 6450 2650 6450
 Wire Wire Line
-	2650 6750 3150 6750
-Wire Wire Line
 	2750 6400 3050 6400
-Wire Wire Line
-	2750 6600 2950 6600
 Text Label 10000 3950 1    50   ~ 0
 GAIN_SLV
 $Comp
@@ -2292,17 +2268,6 @@ F 3 "" H 13050 4750 50  0001 C CNN
 	1    0    0    1   
 $EndComp
 $Comp
-L NovaBox:CPOL C14
-U 1 1 5C937CFE
-P 13400 4750
-F 0 "C14" H 13450 4650 50  0000 L CNN
-F 1 "470μF" H 13450 4850 50  0000 L CNN
-F 2 "NovaBox:CPOL_D8_P3.5" H 13400 4750 50  0001 C CNN
-F 3 "" H 13400 4750 50  0001 C CNN
-	1    13400 4750
-	1    0    0    1   
-$EndComp
-$Comp
 L NovaBox:CPOL C16
 U 1 1 5C937E1F
 P 13050 6150
@@ -2313,55 +2278,24 @@ F 3 "" H 13050 6150 50  0001 C CNN
 	1    13050 6150
 	-1   0    0    -1  
 $EndComp
-$Comp
-L NovaBox:CPOL C20
-U 1 1 5C937EE9
-P 13400 6150
-F 0 "C20" H 13350 6250 50  0000 R CNN
-F 1 "470μF" H 13350 6050 50  0000 R CNN
-F 2 "NovaBox:CPOL_D8_P3.5" H 13400 6150 50  0001 C CNN
-F 3 "" H 13400 6150 50  0001 C CNN
-	1    13400 6150
-	-1   0    0    -1  
-$EndComp
 Wire Wire Line
 	12700 5900 13050 5900
 Wire Wire Line
 	13050 5900 13050 6050
-Wire Wire Line
-	13050 5900 13400 5900
-Wire Wire Line
-	13400 5900 13400 6050
-Connection ~ 13050 5900
 Wire Wire Line
 	13050 6250 13050 6300
 Wire Wire Line
 	13050 6300 12700 6300
 Connection ~ 12700 6300
 Wire Wire Line
-	13050 6300 13400 6300
-Wire Wire Line
-	13400 6300 13400 6250
-Connection ~ 13050 6300
-Wire Wire Line
 	12700 5000 13050 5000
 Wire Wire Line
 	13050 5000 13050 4850
 Wire Wire Line
-	13050 5000 13400 5000
-Wire Wire Line
-	13400 5000 13400 4850
-Connection ~ 13050 5000
-Wire Wire Line
 	12700 4600 13050 4600
-Wire Wire Line
-	13400 4600 13400 4650
 Connection ~ 12700 4600
 Wire Wire Line
 	13050 4650 13050 4600
-Connection ~ 13050 4600
-Wire Wire Line
-	13050 4600 13400 4600
 Wire Wire Line
 	4550 9450 4550 10150
 Wire Wire Line
@@ -2473,4 +2407,28 @@ Wire Wire Line
 Connection ~ 7550 2100
 Wire Wire Line
 	7550 2100 7550 2150
+Wire Wire Line
+	2750 6550 2750 6600
+$Comp
+L NovaBox:R_Pack04 RN1
+U 1 1 5C865A84
+P 2450 6550
+F 0 "RN1" V 2775 6550 50  0000 C CNN
+F 1 "1K" V 2684 6550 50  0000 C CNN
+F 2 "NovaBox:Resistor_Array_x4_1206" V 2725 6550 50  0001 C CNN
+F 3 "" H 2450 6550 50  0001 C CNN
+	1    2450 6550
+	0    1    -1   0   
+$EndComp
+Wire Wire Line
+	2950 7200 2950 6750
+Wire Wire Line
+	2950 6750 2650 6750
+Wire Wire Line
+	2750 6600 3150 6600
+Wire Wire Line
+	3150 6600 3150 7100
+Connection ~ 2750 6600
+Wire Wire Line
+	2750 6600 2750 6650
 $EndSCHEMATC
