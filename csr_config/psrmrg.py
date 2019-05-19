@@ -65,40 +65,47 @@ try:
 	with open(outFile, 'w') as outf:
 		for ov in orVals:
 			srchEntry = next((sv for sv in startVals if sv.addr == ov.addr), None)
-			if not srchEntry:
-				raise RuntimeError('Value in {} with address {} not found in {}'.format(orFile, ov.addr, startFile))
+			if srchEntry:
+				# overwrite the name with the value from the Headset Configuration Tool
+				srchEntry.name = ov.name
 				
-			srchEntry.name = ov.name
-			
-			if srchEntry.value.lower() != ov.value.lower():
-				if srchEntry.addr == '&028d':
-					if ov.value != srchEntry.value[0:len(ov.value)]:
+				if srchEntry.value.lower() != ov.value.lower():
+					if srchEntry.addr == '&028d':
+						if ov.value != srchEntry.value[0:len(ov.value)]:
 
-						joinedValue = ov.value + srchEntry.value[len(ov.value):]
+							joinedValue = ov.value + srchEntry.value[len(ov.value):]
 
-						print ('## ----------------------', file=outf)
-						print ('## joining ', srchEntry.name, file=outf)
-						print ('## addr  ', srchEntry.addr, file=outf)
-						print ('## value ', srchEntry.value, file=outf)
-						print ('## with  ', ov.value, file=outf)
-						print ('## joined', joinedValue, file=outf)
+							print ('## ----------------------', file=outf)
+							print ('## joining ', srchEntry.name, file=outf)
+							print ('## addr  ', srchEntry.addr, file=outf)
+							print ('## value ', srchEntry.value, file=outf)
+							print ('## with  ', ov.value, file=outf)
+							print ('## joined', joinedValue, file=outf)
 
-						srchEntry.value = joinedValue
-						srchEntry.comment += ov.comment[2:]
+							srchEntry.value = joinedValue
+							srchEntry.comment += ov.comment[2:]
+						else:
+							print ('## ----------------------', file=outf)
+							print ('## ignoring difference in &028d', file=outf)
+							
 					else:
-						print ('## ----------------------', file=outf)
-						print ('## ignoring difference in &028d', file=outf)
 						
-				else:
-					
-					print ('## ----------------------', file=outf)
-					print ('## overwriting', srchEntry.name, file=outf)
-					print ('## addr ', srchEntry.addr, file=outf)
-					print ('## value', srchEntry.value, file=outf)
-					print ('## with ', ov.value, file=outf)
-			
-					srchEntry.value = ov.value
-					srchEntry.comment += ov.comment[2:]
+						print ('## ----------------------', file=outf)
+						print ('## overwriting', srchEntry.name, file=outf)
+						print ('## addr ', srchEntry.addr, file=outf)
+						print ('## value', srchEntry.value, file=outf)
+						print ('## with ', ov.value, file=outf)
+				
+						srchEntry.value = ov.value
+						srchEntry.comment += ov.comment[2:]
+			else:
+				print ('## ----------------------', file=outf)
+				print ('## inserting ', ov.name, file=outf)
+				print ('## addr ', ov.addr, file=outf)
+				print ('## value', ov.value, file=outf)
+				
+				startVals.append(ov)
+				startVals.sort(key=lambda e: e.addr)
 
 		print ('', file=outf)
 

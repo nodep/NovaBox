@@ -106,10 +106,9 @@ def calcResistors():
 			
 def calcMax6457():
 	
-	lipoCell = 3.2	# cutoff voltage of a single LiPo cell
+	lipoCell = 3.3	# cutoff voltage of a single LiPo cell
 	
-	vTripGoals = (	3,	# 3 cell LiPo
-					4,	# 4 cell LiPo
+	vTripGoals = (	4,	# 4 cell LiPo
 					6,	# 6 cell LiPo
 					)
 					
@@ -155,8 +154,10 @@ def calcMax6457():
 	# sort by vErrMin
 	results.sort(key = lambda results: results[len(res) - 1])
 	
-	header = 'r1 K' + '\tr2 K\tvTrip {}\tuA\tvErr\tvErr cell' * len(vTripGoals) + '\tmin vErr cell'
-	print (header.format(round(vTripGoals[0] * lipoCell, 1), round(vTripGoals[1] * lipoCell, 1), round(vTripGoals[2] * lipoCell, 1)))
+	header = 'r1 K'
+	for vTripGoal in vTripGoals:
+		header += '\tr2 K\tvTrip {}\tuA\tvErr\tvErr cell'.format(vTripGoal)
+	print (header + '\tmin vErr cell')
 
 	for res in results:
 		if res[0] >= 470:
