@@ -43,7 +43,7 @@ module usb_pcb()
 	open_off = 0.3;
 	
     translate([ux + usbx - open_off, uy + usby - open_off])
-        cube(usbw + open_off*2, usbh + open_off*2, 10);
+        cube([usbw + open_off*2, usbh + open_off*2, 10]);
 }
 
 module main_pcb()
