@@ -9,7 +9,7 @@ slot_len = 10;
 slot_off = 20;
 hborder = thick + pcb_space + outer_space;
 lower_space = 5;
-upper_space = 25;
+upper_space = 28;
 inner_height = lower_space + pcb_thick + upper_space;
 screw_distance = 92;
 full_height = inner_height + thick * 2;
@@ -185,7 +185,7 @@ module speaker_side()
 
 //# translate([0, 0, 10]) pcb();
 
-//projection(cut = true)
+projection(cut = true)
 {
 	bottom();
 
